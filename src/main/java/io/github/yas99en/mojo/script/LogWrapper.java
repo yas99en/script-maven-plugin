@@ -1,4 +1,4 @@
-package io.github.yas99en.script;
+package io.github.yas99en.mojo.script;
 
 import org.apache.maven.plugin.logging.Log;
 

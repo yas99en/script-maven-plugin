@@ -1,4 +1,4 @@
-package io.github.yas99en.script;
+package io.github.yas99en.mojo.script;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
