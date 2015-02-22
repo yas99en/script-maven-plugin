@@ -10,8 +10,8 @@ This plugin is based on 'JSR 223: Scripting for the Java Platform'.
 
 ## Configuration Options
 
-| Option | Default Value                 | Explanation  |
-| --------------- | :---------------------------: | ------------ |
+| Option | Default Value | Explanation  |
+| ------ |:------------: | ------------ |
 | engine |javascript|script engine name. e.g. rhino, nashorn, ruby|
 | script ||script|
 | scriptFile ||script file name to be executed|
