@@ -36,8 +36,8 @@ This plugin is based on 'JSR 223: Scripting for the Java Platform'.
 * mvn
  - It provides project, session, settings, log.
  - It provides two fail() methods.
-   + public void fail(String msg) throws MojoExecutionException: fails build with message.
-   + public void fail() throws MojoExecutionException: fails build with default message.
+     - public void fail(String msg) throws MojoExecutionException: fails build with message.
+     - public void fail() throws MojoExecutionException: fails build with default message.
 
 
 ## Example Configurations
