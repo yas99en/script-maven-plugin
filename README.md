@@ -80,5 +80,6 @@ ruby
             <version>1.7.19</version>
           </dependency>
         </dependencies>
- ```
+       </plugin>
+```
  
