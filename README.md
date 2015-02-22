@@ -192,4 +192,35 @@ groovy
         </dependencies>
        </plugin>
 ```
+python
+
+```xml
+      <plugin>
+        <groupId>io.github.yas99en</groupId>
+        <artifactId>script-maven-plugin</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <executions>
+          <execution>
+            <phase>prepare-package</phase>
+            <goals>
+                <goal>execute</goal>
+            </goals>
+          </execution>
+        </executions>
+
+        <configuration>
+          <engine>python</engine>
+          <script>
+          log.info("hello python " + project.basedir.toString());
+          </script>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>org.python</groupId>
+            <artifactId>jython</artifactId>
+            <version>2.5.3</version>
+          </dependency>
+        </dependencies>
+       </plugin>
+```
  
