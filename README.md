@@ -20,7 +20,7 @@ This plugin is based on 'JSR 223: Scripting for the Java Platform'.
 
 # Global variables
 
-* By default you can use `project, settings, session, log, and mvn`.
+* By default, you can use `project, settings, session, log, and mvn`.
 * project
  - org.apache.maven.project.MavenProject
  - http://maven.apache.org/ref/3.2.5/maven-core/apidocs/org/apache/maven/project/MavenProject.html
