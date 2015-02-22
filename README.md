@@ -44,7 +44,7 @@ This plugin is based on 'JSR 223: Scripting for the Java Platform'.
 
 javascript
 
-```xml:javascript
+```xml
       <plugin>
         <groupId>io.github.yas99en</groupId>
         <artifactId>script-maven-plugin</artifactId>
@@ -77,7 +77,7 @@ javascript
 
 javascript from file
 
-```xml:javascript
+```xml
       <plugin>
         <groupId>io.github.yas99en</groupId>
         <artifactId>script-maven-plugin</artifactId>
@@ -100,7 +100,7 @@ javascript from file
 
 rhino for jdk8 or later
 
-```xml:javascript
+```xml
       <plugin>
         <groupId>io.github.yas99en</groupId>
         <artifactId>script-maven-plugin</artifactId>
