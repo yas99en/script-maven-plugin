@@ -62,11 +62,72 @@ javascript
           <engine>javascript</engine>
           <script>
           log.info("hello from pom");
+          log.info(project.name);
+          log.info(project.version);
+          log.info(project.basedir);
+          log.info(project.build.finalName);
+          log.info(project.build.directory);
+          log.info(project.build.outputDirectory);
+          log.info(settings.localRepository);
+          log.info(session.executionRootDirectory);
           </script>
+        </configuration>
+      </plugin>
+```
+
+javascript from file
+
+```xml:javascript
+      <plugin>
+        <groupId>io.github.yas99en</groupId>
+        <artifactId>script-maven-plugin</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <executions>
+          <execution>
+            <phase>prepare-package</phase>
+            <goals>
+                <goal>execute</goal>
+            </goals>
+          </execution>
+        </executions>
+
+        <configuration>
+          <engine>javascript</engine>
           <scriptFile>src/main/javascript/hello.js</scriptFile>
         </configuration>
       </plugin>
 ```
+
+rhino for jdk8 or later
+
+```xml:javascript
+      <plugin>
+        <groupId>io.github.yas99en</groupId>
+        <artifactId>script-maven-plugin</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <executions>
+          <execution>
+            <phase>prepare-package</phase>
+            <goals>
+                <goal>execute</goal>
+            </goals>
+          </execution>
+        </executions>
+
+        <configuration>
+          <engine>javascript</engine>
+          <scriptFile>src/main/javascript/hello.js</scriptFile>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>de.christophkraemer</groupId>
+            <artifactId>rhino-script-engine</artifactId>
+            <version>1.0.1</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+```
+
 
 ruby
 
@@ -95,6 +156,38 @@ ruby
             <groupId>org.jruby</groupId>
             <artifactId>jruby-complete</artifactId>
             <version>1.7.19</version>
+          </dependency>
+        </dependencies>
+       </plugin>
+```
+
+groovy
+
+```xml
+      <plugin>
+        <groupId>io.github.yas99en</groupId>
+        <artifactId>script-maven-plugin</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <executions>
+          <execution>
+            <phase>prepare-package</phase>
+            <goals>
+                <goal>execute</goal>
+            </goals>
+          </execution>
+        </executions>
+
+        <configuration>
+          <engine>groovy</engine>
+          <script>
+          log.info("hello groovy " + project.basedir.toString());
+          </script>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <version>2.4.0</version>
           </dependency>
         </dependencies>
        </plugin>
