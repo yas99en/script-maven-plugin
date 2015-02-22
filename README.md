@@ -211,7 +211,7 @@ python
         <configuration>
           <engine>python</engine>
           <script>
-          log.info("hello python " + project.basedir.toString());
+log.info("hello python " + project.basedir.toString());
           </script>
         </configuration>
         <dependencies>
