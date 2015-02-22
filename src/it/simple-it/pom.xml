@@ -19,12 +19,18 @@
         <groupId>@project.groupId@</groupId>
         <artifactId>@project.artifactId@</artifactId>
         <version>@project.version@</version>
+        <configuration>
+          <engine>javascript</engine>
+          <script>
+          log.info("hello from pom");
+          </script>
+        </configuration>
         <executions>
           <execution>
-            <id>touch</id>
+            <id>hello</id>
             <phase>validate</phase>
             <goals>
-              <goal>touch</goal>
+              <goal>execute</goal>
             </goals>
           </execution>
         </executions>
