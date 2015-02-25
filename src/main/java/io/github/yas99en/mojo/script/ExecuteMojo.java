@@ -32,7 +32,7 @@ public class ExecuteMojo extends AbstractMojo {
     @Parameter
     private String script;
 
-    @Parameter
+    @Parameter(property="script.scriptFile")
     private String scriptFile;
 
     @Parameter(defaultValue = "true")
