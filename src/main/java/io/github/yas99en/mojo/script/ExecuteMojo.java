@@ -1,6 +1,7 @@
 package io.github.yas99en.mojo.script;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
@@ -24,6 +25,9 @@ public class ExecuteMojo extends AbstractMojo {
 
     @Parameter(defaultValue="javascript")
     private String engine;
+
+    @Parameter(property="script.arguments")
+    private String[] arguments;
 
     @Parameter
     private String script;
@@ -75,24 +79,28 @@ public class ExecuteMojo extends AbstractMojo {
             eng.put("log", mvn.log);
         }
 
+        if(arguments == null) {
+        	arguments = new String[0];
+        }
+
         if(script != null) {
+            eng.put(ScriptEngine.ARGV, arguments);
+            eng.put(ScriptEngine.FILENAME, mvn.project.getBasedir()+File.separator+"pom.xml");
             eng.eval(script);
         }
 
-        if(scriptFile == null) {
-            return;
-        }
-
-        eng.put(ScriptEngine.FILENAME, scriptFile);
-        Reader reader = new BufferedReader(new FileReader(scriptFile));
-
-        try {
-            eng.eval(reader);
-        } finally {
+        if(scriptFile != null) {
+            eng.put(ScriptEngine.ARGV, arguments);
+            eng.put(ScriptEngine.FILENAME, scriptFile);
+            Reader reader = new BufferedReader(new FileReader(scriptFile));
             try {
-                reader.close();
-            } catch(IOException e) {
-                e.printStackTrace();
+                eng.eval(reader);
+            } finally {
+                try {
+                    reader.close();
+                } catch(IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
