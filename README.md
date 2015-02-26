@@ -13,7 +13,7 @@ This plugin is based on 'JSR 223: Scripting for the Java Platform'.
 | Option | Default Value | Explanation  |
 | ------ |:------------: | ------------ |
 | engine |javascript|script engine name. e.g. rhino, nashorn, ruby|
-| arguments | [] | command line arguments for the script|
+| arguments | [] | command line arguments for the script. **sytem property**: script.arguments|
 | script ||script|
 | scriptFile ||script file name to be executed|
 | prefix |mvn| the global variable name to access the maven environment|
