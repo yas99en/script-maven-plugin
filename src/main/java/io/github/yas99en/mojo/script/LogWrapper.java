@@ -2,7 +2,7 @@ package io.github.yas99en.mojo.script;
 
 import org.apache.maven.plugin.logging.Log;
 
-public class LogWrapper {
+public final class LogWrapper {
     private Log log;
 
     public LogWrapper(Log log) {

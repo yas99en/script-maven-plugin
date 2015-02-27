@@ -11,6 +11,8 @@ public final class Mvn {
     public final MavenProject project;
     public final Settings settings;
     public final LogWrapper log;
+    private String scriptFile;
+    private String[] arguments;
 
     Mvn(MavenSession session, Log log) {
         this.session = session;
@@ -26,4 +28,20 @@ public final class Mvn {
     public void fail(String msg) throws MojoExecutionException {
         throw new MojoExecutionException(msg);
     }
+
+	public String getScriptFile() {
+		return scriptFile;
+	}
+
+	void setScriptFile(String scriptFile) {
+		this.scriptFile = scriptFile;
+	}
+
+	public String[] getArguments() {
+		return arguments;
+	}
+
+	void setArguments(String[] arguments) {
+		this.arguments = arguments;
+	}
 }

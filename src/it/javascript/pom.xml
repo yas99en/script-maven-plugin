@@ -31,6 +31,10 @@
           log.info(project.build.outputDirectory);
           log.info(settings.localRepository);
           log.info(session.executionRootDirectory);
+          mvn.log.info("hello mvn.log.info");
+          log.info(mvn.project.name);
+//          mvn.fail("test fail");
+          log.info(mvn.arguments);
           </script>
         </configuration>
         <executions>
