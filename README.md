@@ -16,7 +16,7 @@ This plugin is based on 'JSR 223: Scripting for the Java Platform'.
 | arguments | [] | command line arguments for the script. **sytem property**: script.arguments|
 | script ||inline script|
 | scriptFile ||script file name to be executed|
-| prefix |mvn| the global variable name to access the maven environment|
+| prefix |mvn| the global variable name to access the maven environment. If empty, no global variable for this purpose is created.|
 | globalProject | true | use global variables, project.|
 | globalSettings | true | use global variables, settings.|
 | globalSession | true | use global variables, session.|
@@ -24,7 +24,7 @@ This plugin is based on 'JSR 223: Scripting for the Java Platform'.
 
 # Global variables
 
-* By default, you can use `project, settings, session, log, and mvn`.
+* By default, `project, settings, session, log, and mvn` are available.
 * project
  - org.apache.maven.project.MavenProject
  - http://maven.apache.org/ref/3.2.5/maven-core/apidocs/org/apache/maven/project/MavenProject.html
@@ -38,10 +38,17 @@ This plugin is based on 'JSR 223: Scripting for the Java Platform'.
  - wrapper for org.apache.maven.plugin.logging.Log
  - http://maven.apache.org/ref/3.2.5/maven-plugin-api/apidocs/org/apache/maven/plugin/logging/Log.html
 * mvn
- - It provides project, session, settings, log.
- - It provides two fail() methods.
-     - public void fail(String msg) throws MojoExecutionException: fails build with message.
-     - public void fail() throws MojoExecutionException: fails build with default message.
+
+|member|description|
+|--|--|
+|project|same as above|
+|settings|same as above|
+|session|same as above|
+|log|same as above|
+|arguments|String array provided by arguments property.|
+|scriptFile|current executing script file|
+|public void fail(String msg) throws MojoExecutionException| fails build with message.|
+|public void fail() throws MojoExecutionException|fails build with default message.|
 
 
 ## Example Configurations
