@@ -36,7 +36,16 @@ public class ExecuteMojo extends AbstractMojo {
     private String scriptFile;
 
     @Parameter(defaultValue = "true")
-    private boolean global;
+    private boolean globalProject;
+
+    @Parameter(defaultValue = "true")
+    private boolean globalSession;
+
+    @Parameter(defaultValue = "true")
+    private boolean globalSettings;
+
+    @Parameter(defaultValue = "true")
+    private boolean globalLog;
 
     @Parameter(defaultValue = "mvn")
     private String prefix;
@@ -70,17 +79,23 @@ public class ExecuteMojo extends AbstractMojo {
         }
 
         Mvn mvn = new Mvn(session, log);
+
         log.info("prefix: "+prefix);
-        
         if(!prefix.isEmpty()) {
         	eng.put(prefix, mvn);
         }
 
-        if(global) {
+        if(globalProject) {
             eng.put("project", mvn.project);
-            eng.put("settings", mvn.settings);
-            eng.put("session", mvn.session);
-            eng.put("log", mvn.log);
+        }
+        if(globalSettings) {
+        	eng.put("settings", mvn.settings);
+        }
+        if(globalSession) {
+        	eng.put("session", mvn.session);
+        }
+        if(globalLog) {
+        	eng.put("log", mvn.log);
         }
 
         if(arguments == null) {
