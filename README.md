@@ -39,7 +39,6 @@ This plugin is based on 'JSR 223: Scripting for the Java Platform'.
  - http://maven.apache.org/ref/3.2.5/maven-plugin-api/apidocs/org/apache/maven/plugin/logging/Log.html
 * mvn
 
-
 |member|description|
 | ---- | ---- |
 |project|same as above|
