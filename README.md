@@ -29,7 +29,7 @@ This plugin is based on 'JSR 223: Scripting for the Java Platform'.
  - org.apache.maven.project.MavenProject
  - http://maven.apache.org/ref/3.2.5/maven-core/apidocs/org/apache/maven/project/MavenProject.html
 * session
- - org.apache.maven.execution
+ - org.apache.maven.execution.MavenSession
  - http://maven.apache.org/ref/3.2.5/maven-core/apidocs/org/apache/maven/execution/MavenSession.html
 * settings
  - org.apache.maven.settings.Settings
