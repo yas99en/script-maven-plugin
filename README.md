@@ -41,7 +41,7 @@ This plugin is based on 'JSR 223: Scripting for the Java Platform'.
 
 
 |member|description|
-| -- | -- |
+| ---- | ---- |
 |project|same as above|
 |settings|same as above|
 |session|same as above|
