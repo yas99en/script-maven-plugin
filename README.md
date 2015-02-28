@@ -49,9 +49,36 @@ This plugin is based on 'JSR 223: Scripting for the Java Platform'.
 |public void fail() throws MojoExecutionException|fails build with default message.|
 
 
-## Example Configurations
+## Usage
 
-javascript
+### Basic
+
+pom.xml
+
+```xml
+      <plugin>
+        <groupId>io.github.yas99en</groupId>
+        <artifactId>script-maven-plugin</artifactId>
+        <version>1.0-SNAPSHOT</version>
+
+        <configuration>
+          <engine>javascript</engine>
+          <script>
+          log.info("hello from pom");
+          </script>
+        </configuration>
+      </plugin>
+```
+
+execution
+
+```
+  $ mvn script:execute
+```
+
+### Auto Execution
+
+pom.xml
 
 ```xml
       <plugin>
@@ -66,6 +93,66 @@ javascript
             </goals>
           </execution>
         </executions>
+
+        <configuration>
+          <engine>javascript</engine>
+          <script>
+          log.info("hello from pom");
+          </script>
+        </configuration>
+      </plugin>
+```
+
+The script is executed in prepare-pakcage phase.
+
+```
+  $ mvn install
+```
+
+### Arguments
+
+```xml
+      <plugin>
+        <groupId>io.github.yas99en</groupId>
+        <artifactId>script-maven-plugin</artifactId>
+        <version>1.0-SNAPSHOT</version>
+
+        <configuration>
+          <engine>ruby</engine>
+          <script>
+          p ARGV
+          </script>
+          <arguments>
+            <argument>aaa</argument>
+            <argument>xyz</argument>
+          </arguments>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>org.jruby</groupId>
+            <artifactId>jruby-complete</artifactId>
+            <version>1.7.19</version>
+          </dependency>
+        </dependencies>
+       </plugin>
+```
+
+The arguments can be passed by command line.
+
+```
+  $ mvn -Dscript.arguments="aa,bb" script:execute
+```
+
+
+## Example Configurations
+
+javascript
+
+```xml
+      <plugin>
+        <groupId>io.github.yas99en</groupId>
+        <artifactId>script-maven-plugin</artifactId>
+        <version>1.0-SNAPSHOT</version>
 
         <configuration>
           <engine>javascript</engine>
@@ -95,14 +182,6 @@ javascript from file
         <groupId>io.github.yas99en</groupId>
         <artifactId>script-maven-plugin</artifactId>
         <version>1.0-SNAPSHOT</version>
-        <executions>
-          <execution>
-            <phase>prepare-package</phase>
-            <goals>
-                <goal>execute</goal>
-            </goals>
-          </execution>
-        </executions>
 
         <configuration>
           <engine>javascript</engine>
@@ -122,14 +201,6 @@ rhino for jdk8 or later
         <groupId>io.github.yas99en</groupId>
         <artifactId>script-maven-plugin</artifactId>
         <version>1.0-SNAPSHOT</version>
-        <executions>
-          <execution>
-            <phase>prepare-package</phase>
-            <goals>
-                <goal>execute</goal>
-            </goals>
-          </execution>
-        </executions>
 
         <configuration>
           <engine>javascript</engine>
@@ -157,14 +228,6 @@ ruby
         <groupId>io.github.yas99en</groupId>
         <artifactId>script-maven-plugin</artifactId>
         <version>1.0-SNAPSHOT</version>
-        <executions>
-          <execution>
-            <phase>prepare-package</phase>
-            <goals>
-                <goal>execute</goal>
-            </goals>
-          </execution>
-        </executions>
 
         <configuration>
           <engine>ruby</engine>
@@ -193,14 +256,6 @@ groovy
         <groupId>io.github.yas99en</groupId>
         <artifactId>script-maven-plugin</artifactId>
         <version>1.0-SNAPSHOT</version>
-        <executions>
-          <execution>
-            <phase>prepare-package</phase>
-            <goals>
-                <goal>execute</goal>
-            </goals>
-          </execution>
-        </executions>
 
         <configuration>
           <engine>groovy</engine>
@@ -228,14 +283,6 @@ python
         <groupId>io.github.yas99en</groupId>
         <artifactId>script-maven-plugin</artifactId>
         <version>1.0-SNAPSHOT</version>
-        <executions>
-          <execution>
-            <phase>prepare-package</phase>
-            <goals>
-                <goal>execute</goal>
-            </goals>
-          </execution>
-        </executions>
 
         <configuration>
           <engine>python</engine>
