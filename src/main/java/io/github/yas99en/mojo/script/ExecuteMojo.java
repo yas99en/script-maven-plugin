@@ -26,7 +26,7 @@ public class ExecuteMojo extends AbstractMojo {
     @Parameter(defaultValue="javascript")
     private String engine;
 
-    @Parameter(property="script.arguments")
+    @Parameter(property="scriptmvn.arguments")
     private String[] arguments;
 
     @Parameter
