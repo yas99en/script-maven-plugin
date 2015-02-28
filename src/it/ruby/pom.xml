@@ -22,16 +22,18 @@
         <configuration>
           <engine>ruby</engine>
           <script>
-          $log.info("hello from pom");
-          $log.info($project.name);
-          $log.info($project.version);
-          $log.info($project.basedir);
-          $log.info($project.build.finalName);
-          $log.info($project.build.directory);
-          $log.info($project.build.outputDirectory);
-          $log.info($settings.localRepository);
-          $log.info($mvn.session.executionRootDirectory);
+          $log.info "hello from pom"
+          $log.info $project.name
+          $log.info $project.version
+          $log.info $project.basedir
+          $log.info $project.build.finalName
+          $log.info $project.build.directory
+          $log.info $project.build.outputDirectory
+          $log.info $settings.localRepository
+          $log.info $mvn.session.executionRootDirectory
+          p $mvn.scriptFile
           p $0
+          p $mvn.arguments
           p ARGV
           </script>
           <arguments>
