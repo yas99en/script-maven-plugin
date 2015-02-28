@@ -17,9 +17,9 @@ This plugin is based on 'JSR 223: Scripting for the Java Platform'.
 | script ||inline script|
 | scriptFile ||script file name to be executed|
 | prefix |mvn| the global variable name to access the maven environment. If empty, no global variable for this purpose is created.|
-| globalProject | true | use global variables, project.|
-| globalSettings | true | use global variables, settings.|
-| globalLog | true | use global variables, log.|
+| globalProject | true | use global variable `project`.|
+| globalSettings | true | use global variable `settings`.|
+| globalLog | true | use global variable `log`.|
 
 # Global variables
 
