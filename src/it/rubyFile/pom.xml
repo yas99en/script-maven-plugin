@@ -21,17 +21,7 @@
         <version>@project.version@</version>
         <configuration>
           <engine>ruby</engine>
-          <script>
-          $log.info("hello from pom");
-          $log.info($project.name);
-          $log.info($project.version);
-          $log.info($project.basedir);
-          $log.info($project.build.finalName);
-          $log.info($project.build.directory);
-          $log.info($project.build.outputDirectory);
-          $log.info($settings.localRepository);
-          $log.info($session.executionRootDirectory);
-          </script>
+          <scriptFile>test.rb</scriptFile>
         </configuration>
         <dependencies>
           <dependency>
