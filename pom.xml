@@ -3,7 +3,7 @@
 
   <groupId>io.github.yas99en</groupId>
   <artifactId>script-maven-plugin</artifactId>
-  <version>0.0.2</version>
+  <version>0.0.3-SNAPSHOT</version>
   <packaging>maven-plugin</packaging>
 
   <name>${project.groupId}:${project.artifactId}</name>
@@ -28,7 +28,7 @@
     <connection>scm:git:git@github.com:yas99en/script-maven-plugin.git</connection>
     <developerConnection>scm:git:git@github.com:yas99en/script-maven-plugin.git</developerConnection>
     <url>git@github.com:yas99en/script-maven-plugin.git</url>
-    <tag>script-maven-plugin-0.0.2</tag>
+    <tag>HEAD</tag>
   </scm>
 
   <properties>
