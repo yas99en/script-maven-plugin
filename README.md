@@ -334,7 +334,6 @@ log.info("hello python " + project.basedir.toString());
             ant.invokeMethod("copy", {file: "pom.xml", tofile: "copied"});
             ant.invokeMethod("delete", {file: "copied"});
           </script>
-          <scriptFile>src/main/javascript/hello.js</scriptFile>
         </configuration>
         <dependencies>
           <dependency>
