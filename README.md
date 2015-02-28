@@ -313,4 +313,45 @@ log.info("hello python " + project.basedir.toString());
         </dependencies>
        </plugin>
 ```
- 
+## AntBuilder
+
+```
+      <plugin>
+        <groupId>io.github.yas99en</groupId>
+        <artifactId>script-maven-plugin</artifactId>
+        <version>0.0.2</version>
+        
+        <configuration>
+          <engine>rhino</engine>
+          <arguments>
+            <argument>aa</argument>
+            <argument>xx</argument>
+          </arguments>
+          <script>
+            log.info("hello from pom");
+            var ant = new Packages.groovy.util.AntBuilder();
+            ant.invokeMethod("echo", "hello");
+            ant.invokeMethod("copy", {file: "pom.xml", tofile: "copied"});
+            ant.invokeMethod("delete", {file: "copied"});
+          </script>
+          <scriptFile>src/main/javascript/hello.js</scriptFile>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>de.christophkraemer</groupId>
+            <artifactId>rhino-script-engine</artifactId>
+            <version>1.0.1</version>
+          </dependency>
+          <dependency>
+            <groupId>org.codehaus.groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <version>2.4.0</version>
+          </dependency>
+          <dependency>
+	    <groupId>org.apache.ant</groupId>
+	    <artifactId>ant</artifactId>
+	    <version>1.9.4</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+```
