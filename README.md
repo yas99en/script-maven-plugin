@@ -13,7 +13,7 @@ This plugin is based on 'JSR 223: Scripting for the Java Platform'.
 | Option | Default Value | Explanation  |
 | ------ |:------------: | ------------ |
 | engine |javascript|script engine name. e.g. rhino, nashorn, ruby. It is passed to ScriptEngineManager.getEngineByName().|
-| arguments | [] | command line arguments for the script. **sytem property**: script.arguments|
+| arguments | [] | command line arguments for the script.  **sytem property**: script.arguments|
 | script ||inline script|
 | scriptFile ||script file name to be executed|
 | prefix |mvn| the global variable name to access the maven environment. If empty, no global variable for this purpose is created.|
@@ -21,7 +21,12 @@ This plugin is based on 'JSR 223: Scripting for the Java Platform'.
 | globalSettings | true | use global variable `settings`.|
 | globalLog | true | use global variable `log`.|
 
-# Global variables
+## Note
+
+* This plugin sets ScriptEngine.FILENAME and ScriptEngine.ARGV to script engines, but many engines ignore these properties.
+* You can access the filename and command line arguments via the global variable `mvn`.
+
+## Global variables
 
 * By default, `project, settings, log, and mvn` are available.
 * project
@@ -75,6 +80,10 @@ javascript
           log.info(settings.localRepository);
           log.info(mvn.session.executionRootDirectory);
           </script>
+          <arguments>
+            <argument>aaa</argument>
+            <argument>xyz</argument>
+          </arguments>
         </configuration>
       </plugin>
 ```
@@ -98,6 +107,10 @@ javascript from file
         <configuration>
           <engine>javascript</engine>
           <scriptFile>src/main/javascript/hello.js</scriptFile>
+          <arguments>
+            <argument>aaa</argument>
+            <argument>xyz</argument>
+          </arguments>
         </configuration>
       </plugin>
 ```
@@ -121,6 +134,10 @@ rhino for jdk8 or later
         <configuration>
           <engine>javascript</engine>
           <scriptFile>src/main/javascript/hello.js</scriptFile>
+          <arguments>
+            <argument>aaa</argument>
+            <argument>xyz</argument>
+          </arguments>
         </configuration>
         <dependencies>
           <dependency>
@@ -154,6 +171,10 @@ ruby
           <script>
           puts("hello ruby from pom " + $project.basedir.toString);
           </script>
+          <arguments>
+            <argument>aaa</argument>
+            <argument>xyz</argument>
+          </arguments>
         </configuration>
         <dependencies>
           <dependency>
@@ -186,6 +207,10 @@ groovy
           <script>
           log.info("hello groovy " + project.basedir.toString());
           </script>
+          <arguments>
+            <argument>aaa</argument>
+            <argument>xyz</argument>
+          </arguments>
         </configuration>
         <dependencies>
           <dependency>
@@ -217,6 +242,10 @@ python
           <script>
 log.info("hello python " + project.basedir.toString());
           </script>
+          <arguments>
+            <argument>aaa</argument>
+            <argument>xyz</argument>
+          </arguments>
         </configuration>
         <dependencies>
           <dependency>
