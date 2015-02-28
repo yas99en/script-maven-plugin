@@ -7,3 +7,4 @@ log.info(project.build.directory);
 log.info(project.build.outputDirectory);
 log.info(settings.localRepository);
 log.info(mvn.session.executionRootDirectory);
+log.info(mvn.arguments[0]);
