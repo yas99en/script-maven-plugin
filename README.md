@@ -150,7 +150,7 @@ execution
 The arguments can be passed by command line.
 
 ```
-  $ mvn -Dscript.arguments="aa,bb" script:execute
+  $ mvn -Dscript.arguments="123,zzz" script:execute
 ```
 
 
