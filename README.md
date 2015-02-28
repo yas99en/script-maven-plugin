@@ -21,10 +21,6 @@ This plugin is based on 'JSR 223: Scripting for the Java Platform'.
 | globalSettings | true | use global variable `settings`.|
 | globalLog | true | use global variable `log`.|
 
-## Note
-
-* This plugin sets ScriptEngine.FILENAME and ScriptEngine.ARGV to script engines, but many engines ignore these properties.
-* You can access the filename and command line arguments via the global variable `mvn`.
 
 ## Global variables
 
@@ -109,7 +105,12 @@ The script is executed in prepare-pakcage phase.
   $ mvn install
 ```
 
-### Arguments
+### Arguments and Filename
+
+* This plugin sets ScriptEngine.FILENAME and ScriptEngine.ARGV to script engines, but many engines ignore these properties.
+  + jruby supports both properties.
+* The filename and command line arguments can be accessed via the global variable `mvn`.
+
 
 ```xml
       <plugin>
@@ -120,6 +121,9 @@ The script is executed in prepare-pakcage phase.
         <configuration>
           <engine>ruby</engine>
           <script>
+          p $mvn.scriptFile
+          p $0
+          p $mvn.arguments
           p ARGV
           </script>
           <arguments>
