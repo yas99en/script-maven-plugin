@@ -21,17 +21,7 @@
         <version>@project.version@</version>
         <configuration>
           <engine>python</engine>
-          <script>
-log.info("hello groovy");
-log.info(project.name);
-log.info(project.version);
-log.info(project.basedir);
-log.info(project.build.finalName);
-log.info(project.build.directory);
-log.info(project.build.outputDirectory);
-log.info(settings.localRepository);
-log.info(session.executionRootDirectory);
-          </script>
+          <scriptFile>test.py</scriptFile>
         </configuration>
         <dependencies>
           <dependency>
