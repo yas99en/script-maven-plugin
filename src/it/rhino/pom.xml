@@ -34,6 +34,10 @@
           log.info(mvn.scriptFile);
           log.info(mvn.arguments);
           </script>
+          <arguments>
+            <argument>aaa</argument>
+            <argument>xyz</argument>
+          </arguments>
         </configuration>
         <dependencies>
           <dependency>

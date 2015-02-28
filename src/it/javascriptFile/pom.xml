@@ -22,6 +22,10 @@
         <configuration>
           <engine>javascript</engine>
           <scriptFile>${basedir}/script.js</scriptFile>
+          <arguments>
+            <argument>aaa</argument>
+            <argument>xyz</argument>
+          </arguments>
         </configuration>
         <executions>
           <execution>

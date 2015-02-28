@@ -22,6 +22,10 @@
         <configuration>
           <engine>groovy</engine>
           <scriptFile>test.groovy</scriptFile>
+          <arguments>
+            <argument>aaa</argument>
+            <argument>xyz</argument>
+          </arguments>
         </configuration>
         <dependencies>
           <dependency>

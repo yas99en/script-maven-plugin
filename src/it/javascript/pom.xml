@@ -36,6 +36,10 @@
 //          mvn.fail("test fail");
           log.info(mvn.arguments);
           </script>
+          <arguments>
+            <argument>aaa</argument>
+            <argument>xyz</argument>
+          </arguments>
         </configuration>
         <executions>
           <execution>

@@ -22,6 +22,10 @@
         <configuration>
           <engine>python</engine>
           <scriptFile>test.py</scriptFile>
+          <arguments>
+            <argument>aaa</argument>
+            <argument>xyz</argument>
+          </arguments>
         </configuration>
         <dependencies>
           <dependency>

@@ -32,6 +32,10 @@
           log.info(settings.localRepository);
           log.info(mvn.session.executionRootDirectory);
           </script>
+          <arguments>
+            <argument>aaa</argument>
+            <argument>xyz</argument>
+          </arguments>
         </configuration>
         <dependencies>
           <dependency>
