@@ -19,32 +19,25 @@ This plugin is based on 'JSR 223: Scripting for the Java Platform'.
 | prefix |mvn| the global variable name to access the maven environment. If empty, no global variable for this purpose is created.|
 | globalProject | true | use global variables, project.|
 | globalSettings | true | use global variables, settings.|
-| globalSession | true | use global variables, session.|
 | globalLog | true | use global variables, log.|
 
 # Global variables
 
 * By default, `project, settings, session, log, and mvn` are available.
 * project
- - org.apache.maven.project.MavenProject
- - http://maven.apache.org/ref/3.2.5/maven-core/apidocs/org/apache/maven/project/MavenProject.html
-* session
- - org.apache.maven.execution.MavenSession
- - http://maven.apache.org/ref/3.2.5/maven-core/apidocs/org/apache/maven/execution/MavenSession.html
+ - [org.apache.maven.project.MavenProject](http://maven.apache.org/ref/3.2.5/maven-core/apidocs/org/apache/maven/project/MavenProject.html)
 * settings
- - org.apache.maven.settings.Settings
- - http://maven.apache.org/ref/3.2.5/maven-settings/apidocs/org/apache/maven/settings/Settings.html
+ - [org.apache.maven.settings.Settings](http://maven.apache.org/ref/3.2.5/maven-settings/apidocs/org/apache/maven/settings/Settings.html)
 * log
- - wrapper for org.apache.maven.plugin.logging.Log
- - http://maven.apache.org/ref/3.2.5/maven-plugin-api/apidocs/org/apache/maven/plugin/logging/Log.html
+ - wrapper for [org.apache.maven.plugin.logging.Log](http://maven.apache.org/ref/3.2.5/maven-plugin-api/apidocs/org/apache/maven/plugin/logging/Log.html)
 * mvn
 
 |member|description|
 | ---- | ---- |
 |project|same as above|
 |settings|same as above|
-|session|same as above|
 |log|same as above|
+|session|[org.apache.maven.execution.MavenSession](http://maven.apache.org/ref/3.2.5/maven-core/apidocs/org/apache/maven/execution/MavenSession.html)|
 |arguments|String array provided by arguments property.|
 |scriptFile|current executing script file|
 |public void fail(String msg) throws MojoExecutionException| fails build with message.|

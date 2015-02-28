@@ -39,9 +39,6 @@ public class ExecuteMojo extends AbstractMojo {
     private boolean globalProject;
 
     @Parameter(defaultValue = "true")
-    private boolean globalSession;
-
-    @Parameter(defaultValue = "true")
     private boolean globalSettings;
 
     @Parameter(defaultValue = "true")
@@ -90,9 +87,6 @@ public class ExecuteMojo extends AbstractMojo {
         }
         if(globalSettings) {
         	eng.put("settings", mvn.settings);
-        }
-        if(globalSession) {
-        	eng.put("session", mvn.session);
         }
         if(globalLog) {
         	eng.put("log", mvn.log);
