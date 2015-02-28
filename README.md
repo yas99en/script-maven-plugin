@@ -137,6 +137,12 @@ The script is executed in prepare-pakcage phase.
        </plugin>
 ```
 
+execution
+
+```
+  $ mvn script:execute
+```
+
 The arguments can be passed by command line.
 
 ```
