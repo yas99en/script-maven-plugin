@@ -23,7 +23,7 @@ This plugin is based on 'JSR 223: Scripting for the Java Platform'.
 
 # Global variables
 
-* By default, `project, settings, session, log, and mvn` are available.
+* By default, `project, settings, log, and mvn` are available.
 * project
  - [org.apache.maven.project.MavenProject](http://maven.apache.org/ref/3.2.5/maven-core/apidocs/org/apache/maven/project/MavenProject.html)
 * settings
@@ -73,7 +73,7 @@ javascript
           log.info(project.build.directory);
           log.info(project.build.outputDirectory);
           log.info(settings.localRepository);
-          log.info(session.executionRootDirectory);
+          log.info(mvn.session.executionRootDirectory);
           </script>
         </configuration>
       </plugin>

@@ -6,4 +6,4 @@ $log.info($project.build.finalName);
 $log.info($project.build.directory);
 $log.info($project.build.outputDirectory);
 $log.info($settings.localRepository);
-$log.info($session.executionRootDirectory);
+$log.info($mvn.session.executionRootDirectory);
