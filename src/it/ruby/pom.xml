@@ -22,7 +22,7 @@
         <configuration>
           <engine>ruby</engine>
           <script>
-          $log.info "hello from pom"
+          $log.info "hello ruby from pom"
           $log.info $project.name
           $log.info $project.version
           $log.info $project.basedir
