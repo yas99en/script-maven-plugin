@@ -55,7 +55,7 @@ pom.xml
       <plugin>
         <groupId>io.github.yas99en</groupId>
         <artifactId>script-maven-plugin</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>0.0.2</version>
 
         <configuration>
           <engine>javascript</engine>
@@ -80,7 +80,7 @@ pom.xml
       <plugin>
         <groupId>io.github.yas99en</groupId>
         <artifactId>script-maven-plugin</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>0.0.2</version>
         <executions>
           <execution>
             <phase>prepare-package</phase>
@@ -116,7 +116,7 @@ The script is executed in prepare-pakcage phase.
       <plugin>
         <groupId>io.github.yas99en</groupId>
         <artifactId>script-maven-plugin</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>0.0.2</version>
 
         <configuration>
           <engine>ruby</engine>
@@ -162,7 +162,7 @@ javascript
       <plugin>
         <groupId>io.github.yas99en</groupId>
         <artifactId>script-maven-plugin</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>0.0.2</version>
 
         <configuration>
           <engine>javascript</engine>
@@ -191,7 +191,7 @@ javascript from file
       <plugin>
         <groupId>io.github.yas99en</groupId>
         <artifactId>script-maven-plugin</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>0.0.2</version>
 
         <configuration>
           <engine>javascript</engine>
@@ -210,7 +210,7 @@ rhino for jdk8 or later
       <plugin>
         <groupId>io.github.yas99en</groupId>
         <artifactId>script-maven-plugin</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>0.0.2</version>
 
         <configuration>
           <engine>javascript</engine>
@@ -237,7 +237,7 @@ ruby
       <plugin>
         <groupId>io.github.yas99en</groupId>
         <artifactId>script-maven-plugin</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>0.0.2</version>
 
         <configuration>
           <engine>ruby</engine>
@@ -265,7 +265,7 @@ groovy
       <plugin>
         <groupId>io.github.yas99en</groupId>
         <artifactId>script-maven-plugin</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>0.0.2</version>
 
         <configuration>
           <engine>groovy</engine>
@@ -292,7 +292,7 @@ python
       <plugin>
         <groupId>io.github.yas99en</groupId>
         <artifactId>script-maven-plugin</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>0.0.2</version>
 
         <configuration>
           <engine>python</engine>

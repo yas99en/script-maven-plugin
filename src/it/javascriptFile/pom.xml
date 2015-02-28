@@ -21,7 +21,7 @@
         <version>@project.version@</version>
         <configuration>
           <engine>javascript</engine>
-          <scriptFile>${basedir}/script.js</scriptFile>
+          <scriptFile>${basedir}/test.js</scriptFile>
           <arguments>
             <argument>aaa</argument>
             <argument>xyz</argument>
