@@ -22,6 +22,10 @@
         <configuration>
           <engine>ruby</engine>
           <scriptFile>test.rb</scriptFile>
+          <arguments>
+            <argument>aaa</argument>
+            <argument>xyz</argument>
+          </arguments>
         </configuration>
         <dependencies>
           <dependency>
