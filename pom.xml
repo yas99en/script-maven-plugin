@@ -28,7 +28,6 @@
     <connection>scm:git:git@github.com:yas99en/script-maven-plugin.git</connection>
     <developerConnection>scm:git:git@github.com:yas99en/script-maven-plugin.git</developerConnection>
     <url>https://github.com/yas99en/script-maven-plugin</url>
-    <tag>HEAD</tag>
   </scm>
   
   <issueManagement>
