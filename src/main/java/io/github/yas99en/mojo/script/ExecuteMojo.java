@@ -97,7 +97,7 @@ public class ExecuteMojo extends AbstractMojo {
     }
 
     private void setUpGlobals(ScriptEngine eng, Mvn mvn) {
-        log.info("prefix: "+prefix);
+        log.debug("prefix: "+prefix);
         if(!prefix.isEmpty()) {
             eng.put(prefix, mvn);
         }
@@ -128,9 +128,14 @@ public class ExecuteMojo extends AbstractMojo {
 
     private static void evalScriptFile(ScriptEngine eng, Mvn mvn, String scriptFile)
             throws IOException, ScriptException {
-        mvn.setScriptFile(scriptFile);
-        eng.put(ScriptEngine.FILENAME, scriptFile);
-        Reader reader = new BufferedReader(new FileReader(scriptFile));
+        File file = new File(scriptFile);
+        if(!file.isAbsolute()) {
+            file = new File(mvn.project.getBasedir(), scriptFile);
+        }
+        mvn.log.debug(file);
+        mvn.setScriptFile(file.getAbsolutePath());
+        eng.put(ScriptEngine.FILENAME, file.getAbsolutePath());
+        Reader reader = new BufferedReader(new FileReader(file));
         try {
             eng.eval(reader);
         } finally {
