@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
+import java.util.List;
 
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
@@ -20,20 +21,23 @@ import org.apache.maven.plugins.annotations.Parameter;
 
 @Mojo(name = "execute")
 public class ExecuteMojo extends AbstractMojo {
-    @Parameter( defaultValue = "${session}", readonly = true )
+    @Parameter(defaultValue = "${session}", readonly = true)
     private MavenSession session;
 
-    @Parameter(defaultValue="javascript")
+    @Parameter(defaultValue = "javascript")
     private String engine;
 
     @Parameter(property="scriptmvn.arguments")
     private String[] arguments;
 
     @Parameter
-    private String script;
+    private List<String> scriptFiles;
 
     @Parameter
     private String scriptFile;
+
+    @Parameter
+    private String script;
 
     @Parameter(defaultValue = "true")
     private boolean globalProject;
@@ -77,49 +81,71 @@ public class ExecuteMojo extends AbstractMojo {
 
         Mvn mvn = new Mvn(session, log);
 
+        setUpGlobals(eng, mvn);
+
+        if(scriptFiles != null) {
+            evalScriptFiles(eng, mvn, scriptFiles);
+        }
+
+        if(scriptFile != null) {
+            evalScriptFile(eng, mvn, scriptFile);
+        }
+
+        if(script != null) {
+            evalScript(eng, mvn, script);
+        }
+    }
+
+    private void setUpGlobals(ScriptEngine eng, Mvn mvn) {
         log.info("prefix: "+prefix);
         if(!prefix.isEmpty()) {
-        	eng.put(prefix, mvn);
+            eng.put(prefix, mvn);
         }
 
         if(globalProject) {
             eng.put("project", mvn.project);
         }
         if(globalSettings) {
-        	eng.put("settings", mvn.settings);
+            eng.put("settings", mvn.settings);
         }
         if(globalLog) {
-        	eng.put("log", mvn.log);
+            eng.put("log", mvn.log);
         }
 
         if(arguments == null) {
-        	arguments = new String[0];
+            arguments = new String[0];
         }
+        mvn.setArguments(arguments.clone());
+        eng.put(ScriptEngine.ARGV, arguments.clone());
+    }
 
-        if(script != null) {
-            mvn.setArguments(arguments.clone());
-            eng.put(ScriptEngine.ARGV, arguments.clone());
-            String pomXml = new File(mvn.project.getBasedir(), "pom.xml").getAbsolutePath();
-            mvn.setScriptFile(pomXml);
-            eng.put(ScriptEngine.FILENAME, pomXml);
-            eng.eval(script);
-        }
+    private static void evalScript(ScriptEngine eng, Mvn mvn, String script) throws ScriptException {
+        String pomXml = new File(mvn.project.getBasedir(), "pom.xml").getAbsolutePath();
+        mvn.setScriptFile(pomXml);
+        eng.put(ScriptEngine.FILENAME, pomXml);
+        eng.eval(script);
+    }
 
-        if(scriptFile != null) {
-            mvn.setArguments(arguments.clone());
-            eng.put(ScriptEngine.ARGV, arguments.clone());
-            mvn.setScriptFile(scriptFile);
-            eng.put(ScriptEngine.FILENAME, scriptFile);
-            Reader reader = new BufferedReader(new FileReader(scriptFile));
+    private static void evalScriptFile(ScriptEngine eng, Mvn mvn, String scriptFile)
+            throws IOException, ScriptException {
+        mvn.setScriptFile(scriptFile);
+        eng.put(ScriptEngine.FILENAME, scriptFile);
+        Reader reader = new BufferedReader(new FileReader(scriptFile));
+        try {
+            eng.eval(reader);
+        } finally {
             try {
-                eng.eval(reader);
-            } finally {
-                try {
-                    reader.close();
-                } catch(IOException e) {
-                    e.printStackTrace();
-                }
+                reader.close();
+            } catch(IOException e) {
+                e.printStackTrace();
             }
+        }
+    }
+
+    private static void evalScriptFiles(ScriptEngine eng, Mvn mvn,
+            List<String> scriptFiles) throws IOException, ScriptException {
+        for(String scriptFile: scriptFiles) {
+            evalScriptFile(eng, mvn, scriptFile);
         }
     }
 }
