@@ -399,9 +399,9 @@ log.info("hello python " + project.basedir.toString());
             <version>2.4.0</version>
           </dependency>
           <dependency>
-	    <groupId>org.apache.ant</groupId>
-	    <artifactId>ant</artifactId>
-	    <version>1.9.4</version>
+            <groupId>org.apache.ant</groupId>
+            <artifactId>ant</artifactId>
+            <version>1.9.4</version>
           </dependency>
         </dependencies>
       </plugin>
