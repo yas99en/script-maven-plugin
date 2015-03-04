@@ -28,20 +28,20 @@ public class ListMojo extends AbstractMojo {
 
         List<ScriptEngineFactory> factories = m.getEngineFactories();
         for (ScriptEngineFactory factory: factories) {
-            System.out.println("    ---");
+            System.out.println("");
             dumpEngineFactory(factory);
         }
-        System.out.println("    ---");
+        System.out.println("");
     }
 
     private static void dumpEngineFactory(ScriptEngineFactory factory) {
-        System.out.println("    LanguageName   :"+factory.getLanguageName());
-        System.out.println("    LanguageVersion:"+factory.getLanguageVersion() );
-        System.out.println("    EngineName     :"+factory.getEngineName());
-        System.out.println("    EngineVersion  :"+factory.getEngineVersion());
-        System.out.println("    Extensions     :"+factory.getExtensions());
-        System.out.println("    MimeTypes      :"+factory.getMimeTypes());
-        System.out.println("    Names          :"+factory.getNames());
+        System.out.println("    LanguageName   : "+factory.getLanguageName());
+        System.out.println("    LanguageVersion: "+factory.getLanguageVersion() );
+        System.out.println("    EngineName     : "+factory.getEngineName());
+        System.out.println("    EngineVersion  : "+factory.getEngineVersion());
+        System.out.println("    Extensions     : "+factory.getExtensions());
+        System.out.println("    MimeTypes      : "+factory.getMimeTypes());
+        System.out.println("    Names          : "+factory.getNames());
     }
 
     public static void main(String[] args) throws ScriptException {
