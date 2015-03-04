@@ -4,7 +4,7 @@ Executes scripts in maven build.
 This plugin is based on 'JSR 223: Scripting for the Java Platform'.
 
 
-## Goals
+## Goal: execute
 
 * `script:execute`: executes scripts
 
@@ -12,7 +12,7 @@ This plugin is based on 'JSR 223: Scripting for the Java Platform'.
 
 | Option | Default Value | Explanation  |
 | ------ |:------------: | ------------ |
-| engine |javascript|script engine name. e.g. rhino, nashorn, ruby. It is passed to ScriptEngineManager.getEngineByName().|
+| engine |javascript|script engine name. e.g. rhino, nashorn, ruby. It is passed to ScriptEngineManager.getEngineByName(). The goal `script:list` is available to confirm the engine name.|
 | arguments | [] | command line arguments for the script.  **sytem property**: scriptmvn.arguments|
 | script ||inline script|
 | scriptFile ||script file name to be executed|
@@ -406,3 +406,9 @@ log.info("hello python " + project.basedir.toString());
         </dependencies>
       </plugin>
 ```
+
+
+## Goal: list
+
+* `script:list`: list all script engine information. Any one of `Names` can be used as the option `engine`.
+
