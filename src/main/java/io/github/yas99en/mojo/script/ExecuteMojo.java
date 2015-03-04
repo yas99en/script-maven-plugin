@@ -18,6 +18,10 @@ import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 
+
+/**
+ * Executes scripts
+ */
 @Mojo(name = "execute")
 public class ExecuteMojo extends AbstractMojo {
     @Parameter(defaultValue = "${session}", readonly = true)

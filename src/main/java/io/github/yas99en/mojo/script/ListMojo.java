@@ -10,6 +10,9 @@ import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugins.annotations.Mojo;
 
+/**
+ * Lists all script engine information.
+ */
 @Mojo(name = "list")
 public class ListMojo extends AbstractMojo {
 
