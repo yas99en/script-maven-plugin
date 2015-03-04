@@ -16,7 +16,7 @@ This plugin is based on 'JSR 223: Scripting for the Java Platform'.
 | arguments | [] | command line arguments for the script.  **sytem property**: scriptmvn.arguments|
 | script ||inline script|
 | scriptFile ||script file name to be executed|
-| scriptFiles ||array of script files to be executed|
+| scriptFiles ||list of script files to be executed|
 | prefix |mvn| the global variable name to access the maven environment. If empty, no global variable for this purpose is created.|
 | globalProject | true | use global variable `project`.|
 | globalSettings | true | use global variable `settings`.|
