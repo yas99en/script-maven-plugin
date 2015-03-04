@@ -412,3 +412,8 @@ log.info("hello python " + project.basedir.toString());
 
 * `script:list`: list all script engine information. Any one of `Names` can be used as the option `engine`.
 
+execution
+
+```
+  $ mvn script:list
+```
