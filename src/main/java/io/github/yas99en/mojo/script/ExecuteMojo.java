@@ -53,7 +53,7 @@ public class ExecuteMojo extends AbstractMojo {
 
     private Log log;
 
-    public void execute() throws MojoExecutionException, MojoFailureException {
+    public void execute() throws MojoExecutionException {
         log = getLog();
 
         try {

@@ -8,14 +8,13 @@ import javax.script.ScriptException;
 
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
-import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.plugins.annotations.Mojo;
 
 @Mojo(name = "list")
 public class ListMojo extends AbstractMojo {
 
     @Override
-    public void execute() throws MojoExecutionException, MojoFailureException {
+    public void execute() throws MojoExecutionException {
         try {
             listScriptEngines();
         } catch (ScriptException e) {
