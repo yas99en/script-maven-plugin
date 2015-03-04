@@ -16,6 +16,7 @@ This plugin is based on 'JSR 223: Scripting for the Java Platform'.
 | arguments | [] | command line arguments for the script.  **sytem property**: scriptmvn.arguments|
 | script ||inline script|
 | scriptFile ||script file name to be executed|
+| scriptFiles ||array of script files to be executed|
 | prefix |mvn| the global variable name to access the maven environment. If empty, no global variable for this purpose is created.|
 | globalProject | true | use global variable `project`.|
 | globalSettings | true | use global variable `settings`.|
@@ -153,6 +154,35 @@ The arguments can be passed by command line.
   $ mvn -Dscript.arguments="123,zzz" script:execute
 ```
 
+### Mixed Multiple files and inline script
+
+
+```xml
+      <plugin>
+        <groupId>io.github.yas99en</groupId>
+        <artifactId>script-maven-plugin</artifactId>
+        <version>0.0.2</version>
+
+        <configuration>
+          <engine>javascript</engine>
+          <scriptFiles>
+            <scriptFile>src/main/javascript/libA.js</scriptFile>
+            <scriptFile>src/main/javascript/libB.js</scriptFile>
+          </scriptFiles>
+          <scriptFile>src/main/javascript/hello.js</scriptFile>
+          <script>
+          log.info("hello from pom");
+          </script>
+          <arguments>
+            <argument>aaa</argument>
+            <argument>xyz</argument>
+          </arguments>
+        </configuration>
+      </plugin>
+```
+The elements `script`, `scriptFile` and `scriptFiles` can be put any order.
+But the execution order is alway s `scriptFiles`, `scriptFile`, `script`.
+
 
 ## Example Configurations
 
@@ -196,6 +226,28 @@ javascript from file
         <configuration>
           <engine>javascript</engine>
           <scriptFile>src/main/javascript/hello.js</scriptFile>
+          <arguments>
+            <argument>aaa</argument>
+            <argument>xyz</argument>
+          </arguments>
+        </configuration>
+      </plugin>
+```
+
+javascript from multile files
+
+```xml
+      <plugin>
+        <groupId>io.github.yas99en</groupId>
+        <artifactId>script-maven-plugin</artifactId>
+        <version>0.0.2</version>
+
+        <configuration>
+          <engine>javascript</engine>
+          <scriptFiles>
+            <scriptFile>src/main/javascript/libA.js</scriptFile>
+            <scriptFile>src/main/javascript/libB.js</scriptFile>
+          </scriptFiles>
           <arguments>
             <argument>aaa</argument>
             <argument>xyz</argument>
