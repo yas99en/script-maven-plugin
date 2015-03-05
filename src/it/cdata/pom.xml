@@ -23,7 +23,7 @@
           <engine>javascript</engine>
           <script>
           <![CDATA[
-  log.info("hello form cdata");
+log.info("hello form cdata");
 for(var i = 0; i < mvn.arguments.length; i++) {
   log.info(mvn.arguments[i]);
 }
