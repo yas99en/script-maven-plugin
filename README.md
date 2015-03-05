@@ -98,6 +98,36 @@ for(var i = 0; i < mvn.arguments.length; i++) {
 ```
 The complex inline script should be contained by XML CDATA section.
 
+### fail
+
+pom.xml
+
+```xml
+      <plugin>
+        <groupId>io.github.yas99en</groupId>
+        <artifactId>script-maven-plugin</artifactId>
+        <version>0.0.3</version>
+
+        <configuration>
+          <engine>javascript</engine>
+          <script>
+          <![CDATA[
+          log.info("fail test");
+          try {
+            mvn.fail("test fail");
+          } catch(e) {
+            log.info(e);
+//            throw e;
+          }
+          ]]>
+          </script>
+        </configuration>
+      </plugin>
+```
+
+If the build should be failed, a MojoExecutionException can be thrown by mvn.fail().
+
+
 ### Auto Execution
 
 pom.xml
