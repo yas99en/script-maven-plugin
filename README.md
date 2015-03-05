@@ -201,7 +201,7 @@ execution
 The arguments can be passed by command line.
 
 ```
-  $ mvn -Dscript.arguments="123,zzz" script:execute
+  $ mvn -Dscriptmvn.arguments="123,zzz" script:execute
 ```
 
 ### Mixed Multiple files and inline script
