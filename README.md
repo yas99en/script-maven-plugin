@@ -73,6 +73,31 @@ execution
   $ mvn script:execute
 ```
 
+### CDATA
+
+pom.xml
+
+```xml
+      <plugin>
+        <groupId>io.github.yas99en</groupId>
+        <artifactId>script-maven-plugin</artifactId>
+        <version>0.0.3</version>
+
+        <configuration>
+          <engine>javascript</engine>
+          <script>
+          <![CDATA[
+log.info("hello form cdata");
+for(var i = 0; i < mvn.arguments.length; i++) {
+  log.info(mvn.arguments[i]);
+}
+]]>
+          </script>
+        </configuration>
+      </plugin>
+```
+The complex inline script should be contained by XML CDATA section.
+
 ### Auto Execution
 
 pom.xml
