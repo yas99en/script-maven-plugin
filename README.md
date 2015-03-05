@@ -113,12 +113,7 @@ pom.xml
           <script>
           <![CDATA[
           log.info("fail test");
-          try {
-            mvn.fail("test fail");
-          } catch(e) {
-            log.info(e);
-//            throw e;
-          }
+          mvn.fail("test fail");
           ]]>
           </script>
         </configuration>

@@ -28,7 +28,6 @@
             mvn.fail("test fail");
           } catch(e) {
             log.info(e);
-//            throw e;
            }
           ]]>
           </script>
