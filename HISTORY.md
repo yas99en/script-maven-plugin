@@ -1,5 +1,7 @@
 ### Development
 
+### 0.0.3 / 2015-3-6
+
 * Added `list` goal.
 * Added multiple files support.
 * Define the exection order for scriptFiles, scriptFile, and script.
