@@ -4,4 +4,4 @@ jdk:
   - oraclejdk7
   - oraclejdk8
 
-script: mvn -Prun-its integration-test
+script: mvn -Prun-its verify
