@@ -1,6 +1,6 @@
 # script-maven-plugin
 
-[![Build Status](https://travis-ci.org/yas99en/script-maven-plugin.svg?branch=develop)](https://travis-ci.org/yas99en/script-maven-plugin) : for `develop` branch
+[![Build Status](https://travis-ci.org/yas99en/script-maven-plugin.svg?branch=develop)](https://travis-ci.org/yas99en/script-maven-plugin)
 
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.yas99en/script-maven-plugin/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.yas99en/script-maven-plugin)
 
