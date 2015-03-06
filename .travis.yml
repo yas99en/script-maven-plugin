@@ -3,3 +3,5 @@ jdk:
   - openjdk6
   - oraclejdk7
   - oraclejdk8
+
+script: mvn -Prun-its integration-test
