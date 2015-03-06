@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/yas99en/script-maven-plugin.svg?branch=develop)](https://travis-ci.org/yas99en/script-maven-plugin) : for `develop` branch
 
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.yas99en/script-maven-plugin/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.yas99en/script-maven-plugin)
+
 Executes scripts in maven build.
 This plugin is based on 'JSR 223: Scripting for the Java Platform'.
 
