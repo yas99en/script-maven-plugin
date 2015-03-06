@@ -1,5 +1,7 @@
 # script-maven-plugin
 
+[![Build Status](https://travis-ci.org/yas99en/script-maven-plugin.svg?branch=develop)](https://travis-ci.org/yas99en/script-maven-plugin)
+
 Executes scripts in maven build.
 This plugin is based on 'JSR 223: Scripting for the Java Platform'.
 
