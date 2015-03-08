@@ -2,10 +2,12 @@ package io.github.yas99en.mojo.script;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.Reader;
+import java.net.URL;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
@@ -24,6 +26,8 @@ import org.apache.maven.plugins.annotations.Parameter;
  */
 @Mojo(name = "execute")
 public class ExecuteMojo extends AbstractMojo {
+    private static Pattern urlPattern = Pattern.compile("^\\p{Alpha}[\\p{Alnum}+-.]*://.*");
+
     @Parameter(defaultValue = "${session}", readonly = true)
     private MavenSession session;
 
@@ -131,14 +135,26 @@ public class ExecuteMojo extends AbstractMojo {
 
     private static void evalScriptFile(ScriptEngine eng, Mvn mvn, String scriptFile)
             throws IOException, ScriptException {
-        File file = new File(scriptFile);
-        if(!file.isAbsolute()) {
-            file = new File(mvn.project.getBasedir(), scriptFile);
+
+        URL url = null;
+        if(urlPattern.matcher(scriptFile).matches()) {
+            url = new URL(scriptFile);
+            mvn.log.debug(url);
+            mvn.setScriptFile(url.getPath());
+            eng.put(ScriptEngine.FILENAME, url.getPath());
+        } else {
+            File file = new File(scriptFile);
+            if(!file.isAbsolute()) {
+                file = new File(mvn.project.getBasedir(), scriptFile);
+            }
+            url = file.toURI().toURL();
+            mvn.log.debug(file);
+            mvn.setScriptFile(file.getAbsolutePath());
+            eng.put(ScriptEngine.FILENAME, file.getAbsolutePath());
         }
-        mvn.log.debug(file);
-        mvn.setScriptFile(file.getAbsolutePath());
-        eng.put(ScriptEngine.FILENAME, file.getAbsolutePath());
-        Reader reader = new BufferedReader(new FileReader(file));
+
+        Reader reader = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"));
+
         try {
             eng.eval(reader);
         } finally {
