@@ -2,7 +2,9 @@ package io.github.yas99en.mojo.script;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.net.URL;
@@ -136,24 +138,25 @@ public class ExecuteMojo extends AbstractMojo {
     private static void evalScriptFile(ScriptEngine eng, Mvn mvn, String scriptFile)
             throws IOException, ScriptException {
 
-        URL url = null;
+        InputStream in = null;
         if(urlPattern.matcher(scriptFile).matches()) {
-            url = new URL(scriptFile);
+            URL url = new URL(scriptFile);
             mvn.log.debug(url);
-            mvn.setScriptFile(url.getPath());
-            eng.put(ScriptEngine.FILENAME, url.getPath());
+            mvn.setScriptFile(scriptFile);
+            eng.put(ScriptEngine.FILENAME, scriptFile);
+            in = url.openStream();
         } else {
             File file = new File(scriptFile);
             if(!file.isAbsolute()) {
                 file = new File(mvn.project.getBasedir(), scriptFile);
             }
-            url = file.toURI().toURL();
             mvn.log.debug(file);
             mvn.setScriptFile(file.getAbsolutePath());
             eng.put(ScriptEngine.FILENAME, file.getAbsolutePath());
+            in = new FileInputStream(file);
         }
 
-        Reader reader = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"));
+        Reader reader = new BufferedReader(new InputStreamReader(in, "UTF-8"));
 
         try {
             eng.eval(reader);
