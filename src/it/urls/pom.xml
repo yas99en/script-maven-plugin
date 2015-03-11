@@ -34,6 +34,7 @@
              log.info("hello from pom");
              log.info(lib1);
              log.info(lib2);
+             log.info(lib3);
              log.info(testFile);
           </script>
         </configuration>
