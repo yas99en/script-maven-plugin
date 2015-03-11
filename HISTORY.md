@@ -1,5 +1,7 @@
 ### Development
 
+* added URL support for scriptFile
+
 ### 0.0.3 / 2015-3-6
 
 * Added `list` goal.
