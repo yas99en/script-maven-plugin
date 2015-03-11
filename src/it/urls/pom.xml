@@ -28,6 +28,7 @@
           <scriptFiles>
             <scriptFile>file://${basedir}/lib1.js</scriptFile>
             <scriptFile>jar:file://${basedir}/lib2.jar!/lib2.js</scriptFile>
+            <scriptFile>https://raw.githubusercontent.com/yas99en/script-maven-plugin/url/src/it/urls/lib3.js</scriptFile>
           </scriptFiles>
           <scriptFile>test.js</scriptFile>
           <script>

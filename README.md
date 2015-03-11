@@ -17,7 +17,7 @@ This plugin is based on 'JSR 223: Scripting for the Java Platform'.
 | engine |javascript|script engine name. e.g. rhino, nashorn, ruby. It is passed to ScriptEngineManager.getEngineByName(). The goal `script:list` is available to confirm the engine name.|
 | arguments | [] | command line arguments for the script.  **sytem property**: scriptmvn.arguments|
 | script ||inline script|
-| scriptFile ||script file name to be executed. If it starts with jar:, http://, https://or file:, then it is treated as URL.|
+| scriptFile ||script file name to be executed. If it starts with `jar:`, `http://`, `https://` or `file:`, then it is treated as URL. see javadoc of URL and JarURLConnection.|
 | scriptFiles ||list of script files to be executed|
 | prefix |mvn| the global variable name to access the maven environment. If empty, no global variable for this purpose is created.|
 | globalProject | true | use global variable `project`.|
