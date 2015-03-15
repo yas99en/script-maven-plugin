@@ -204,8 +204,7 @@
               <settingsFile>src/it/settings.xml</settingsFile>
               <goals>
                 <goal>clean</goal>
-                <goal>test-compile</goal>
-                <goal>integration-test</goal>
+                <goal>verify</goal>
               </goals>
             </configuration>
             <executions>
@@ -213,14 +212,12 @@
                 <id>integration-test</id>
                 <goals>
                   <goal>install</goal>
-                  <goal>integration-test</goal>
-                  <goal>verify</goal>
+                  <goal>run</goal>
                 </goals>
               </execution>
             </executions>
           </plugin>
         </plugins>
-
       </build>
     </profile>
   </profiles>

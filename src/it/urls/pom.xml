@@ -29,6 +29,7 @@
             <scriptFile>file://${basedir}/lib1.js</scriptFile>
             <scriptFile>jar:file://${basedir}/lib2.jar!/lib2.js</scriptFile>
             <scriptFile>https://raw.githubusercontent.com/yas99en/script-maven-plugin/url/src/it/urls/lib3.js</scriptFile>
+            <scriptFile>http://localhost:8080/lib4.js</scriptFile>
           </scriptFiles>
           <scriptFile>test.js</scriptFile>
           <script>
@@ -36,19 +37,54 @@
              log.info(lib1);
              log.info(lib2);
              log.info(lib3);
+             log.info(lib4);
              log.info(testFile);
           </script>
         </configuration>
         <executions>
           <execution>
             <id>hello</id>
-            <phase>validate</phase>
+            <phase>integration-test</phase>
             <goals>
               <goal>execute</goal>
             </goals>
           </execution>
         </executions>
       </plugin>
+
+
+      <plugin>
+        <groupId>org.eclipse.jetty</groupId>
+        <artifactId>jetty-maven-plugin</artifactId>
+        <version>9.2.10.v20150310</version>
+        <configuration>
+          <scanIntervalSeconds>10</scanIntervalSeconds>
+          <stopPort>8005</stopPort>
+          <stopKey>STOP</stopKey>
+          <contextPath>/</contextPath>
+        </configuration>
+        <executions>
+          <execution>
+            <id>start-jetty</id>
+            <phase>pre-integration-test</phase>
+            <goals>
+              <goal>start</goal>
+            </goals>
+            <configuration>
+              <scanIntervalSeconds>0</scanIntervalSeconds>
+              <daemon>true</daemon>
+            </configuration>
+          </execution>
+          <execution>
+            <id>stop-jetty</id>
+            <phase>post-integration-test</phase>
+            <goals>
+              <goal>stop</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
     </plugins>
   </build>
 </project>
