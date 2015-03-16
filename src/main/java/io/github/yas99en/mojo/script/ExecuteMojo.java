@@ -92,16 +92,20 @@ public class ExecuteMojo extends AbstractMojo {
 
         setUpGlobals(eng, mvn);
 
+        if(arguments == null) {
+            arguments = new String[0];
+        }
+
         if(scriptFiles != null) {
-            evalScriptFiles(eng, mvn, scriptFiles);
+            evalScriptFiles(eng, mvn, scriptFiles, arguments);
         }
 
         if(scriptFile != null) {
-            evalScriptFile(eng, mvn, scriptFile);
+            evalScriptFile(eng, mvn, scriptFile, arguments);
         }
 
         if(script != null) {
-            evalScript(eng, mvn, script);
+            evalScript(eng, mvn, script, arguments);
         }
     }
 
@@ -120,23 +124,22 @@ public class ExecuteMojo extends AbstractMojo {
         if(globalLog) {
             eng.put("log", mvn.log);
         }
-
-        if(arguments == null) {
-            arguments = new String[0];
-        }
-        mvn.setArguments(arguments.clone());
-        eng.put(ScriptEngine.ARGV, arguments.clone());
     }
 
-    private static void evalScript(ScriptEngine eng, Mvn mvn, String script) throws ScriptException {
+    private static void evalScript(ScriptEngine eng, Mvn mvn, String script, String[] arguments) throws ScriptException {
         String pomXml = new File(mvn.project.getBasedir(), "pom.xml").getAbsolutePath();
         mvn.setScriptFile(pomXml);
         eng.put(ScriptEngine.FILENAME, pomXml);
+        mvn.setArguments(arguments.clone());
+        eng.put(ScriptEngine.ARGV, arguments.clone());
         eng.eval(script);
     }
 
-    private static void evalScriptFile(ScriptEngine eng, Mvn mvn, String scriptFile)
+    private static void evalScriptFile(ScriptEngine eng, Mvn mvn, String scriptFile, String[] arguments)
             throws IOException, ScriptException {
+
+        mvn.setArguments(arguments.clone());
+        eng.put(ScriptEngine.ARGV, arguments.clone());
 
         InputStream in = null;
         if(urlPattern.matcher(scriptFile).matches()) {
@@ -170,9 +173,9 @@ public class ExecuteMojo extends AbstractMojo {
     }
 
     private static void evalScriptFiles(ScriptEngine eng, Mvn mvn,
-            List<String> scriptFiles) throws IOException, ScriptException {
+            List<String> scriptFiles, String[] arguments) throws IOException, ScriptException {
         for(String scriptFile: scriptFiles) {
-            evalScriptFile(eng, mvn, scriptFile);
+            evalScriptFile(eng, mvn, scriptFile, arguments);
         }
     }
 }
