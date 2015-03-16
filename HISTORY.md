@@ -1,4 +1,4 @@
-### Development
+### 0.5.0 / XXX
 
 * added URL support for scriptFile
 
