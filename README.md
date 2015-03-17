@@ -6,7 +6,7 @@ Executes scripts in maven build.
 This plugin is based on 'JSR 223: Scripting for the Java Platform'.
 
 
-## Goal: execute
+# Goal: execute
 
 * `script:execute`: executes scripts
 
@@ -458,9 +458,17 @@ log.info("hello python " + project.basedir.toString());
         </dependencies>
       </plugin>
 ```
+# Goal: oneline
+
+* `script:oneline`: executes scripts. It is almost same as `script:execute`. 
+But it is intended to use for one line script.
+
+```
+$ mvn -q io.github.yas99en:script-maven-plugin:0.5.0:oneline -Dscriptmvn.script1='Packages.java.lang.System.out.println(project.version);'
+```
 
 
-## Goal: list
+# Goal: list
 
 * `script:list`: list all script engine information. Any one of `Names` can be used as the option `engine`.
 
