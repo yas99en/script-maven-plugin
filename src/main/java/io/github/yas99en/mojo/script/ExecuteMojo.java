@@ -178,4 +178,44 @@ public class ExecuteMojo extends AbstractMojo {
             evalScriptFile(eng, mvn, scriptFile, arguments);
         }
     }
+
+    void setSession(MavenSession session) {
+        this.session = session;
+    }
+
+    void setEngine(String engine) {
+        this.engine = engine;
+    }
+
+    void setArguments(String[] arguments) {
+        this.arguments = arguments;
+    }
+
+    void setScriptFiles(List<String> scriptFiles) {
+        this.scriptFiles = scriptFiles;
+    }
+
+    void setScriptFile(String scriptFile) {
+        this.scriptFile = scriptFile;
+    }
+
+    void setScript(String script) {
+        this.script = script;
+    }
+
+    void setGlobalProject(boolean globalProject) {
+        this.globalProject = globalProject;
+    }
+
+    void setGlobalSettings(boolean globalSettings) {
+        this.globalSettings = globalSettings;
+    }
+
+    void setGlobalLog(boolean globalLog) {
+        this.globalLog = globalLog;
+    }
+
+    void setPrefix(String prefix) {
+        this.prefix = prefix;
+    }
 }
