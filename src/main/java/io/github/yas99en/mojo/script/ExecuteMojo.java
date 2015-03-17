@@ -45,7 +45,7 @@ public class ExecuteMojo extends AbstractMojo {
     @Parameter
     private String scriptFile;
 
-    @Parameter(property="scriptmvn.script")
+    @Parameter()
     private String script;
 
     @Parameter(defaultValue = "true")
