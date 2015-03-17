@@ -28,7 +28,7 @@ import org.apache.maven.plugins.annotations.Parameter;
  */
 @Mojo(name = "execute")
 public class ExecuteMojo extends AbstractMojo {
-    private static Pattern urlPattern = Pattern.compile("^jar:.*|^http://.*|^https://.*|^file:.*");
+    private static final Pattern urlPattern = Pattern.compile("^jar:.*|^http://.*|^https://.*|^file:.*");
 
     @Parameter(defaultValue = "${session}", readonly = true)
     private MavenSession session;
