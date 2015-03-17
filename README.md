@@ -463,6 +463,12 @@ log.info("hello python " + project.basedir.toString());
 * `script:oneline`: executes scripts. It is almost same as `script:execute`. 
 But it is intended to use for one line script.
 * `project.version` can be got as follows:
+    * It does not require the configuration in pom.xml.
+    * If there is the configuration for `oneline` goal in pom.xml, 
+      it will be reflected.
+    * Some options can be overridden by commnad line,
+      but another options can not be.
+      It may be a bug or a specification of maven.
 
 ```
 $ mvn -q io.github.yas99en:script-maven-plugin:0.5.0:oneline -Dscriptmvn.script1='Packages.java.lang.System.out.println(project.version);'
