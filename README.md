@@ -462,6 +462,7 @@ log.info("hello python " + project.basedir.toString());
 
 * `script:oneline`: executes scripts. It is almost same as `script:execute`. 
 But it is intended to use for one line script.
+* `project.version` can be got as follows:
 
 ```
 $ mvn -q io.github.yas99en:script-maven-plugin:0.5.0:oneline -Dscriptmvn.script1='Packages.java.lang.System.out.println(project.version);'
