@@ -458,6 +458,7 @@ log.info("hello python " + project.basedir.toString());
         </dependencies>
       </plugin>
 ```
+
 # Goal: oneline
 
 * `script:oneline`: executes scripts. It is almost same as `script:execute`. 
@@ -473,6 +474,7 @@ But it is intended to use for one line script.
 ```
 $ mvn -q io.github.yas99en:script-maven-plugin:0.5.0:oneline -Dscriptmvn.script1='Packages.java.lang.System.out.println(project.version);'
 ```
+
 ## Configuration Options
 
 | Option | Default Value | Explanation  |
@@ -482,9 +484,6 @@ $ mvn -q io.github.yas99en:script-maven-plugin:0.5.0:oneline -Dscriptmvn.script1
 | script1 ||samle as `script` for `execute`. **sytem property**: `scriptmvn.script1`|
 | scriptFile1 ||samle as `scriptFile1` for `execute`. **sytem property**: `scriptmvn.scriptFile1`|
 | scriptFiles1 ||samle as `scriptFiles1` for `execute`. **sytem property**: `scriptmvn.scriptFiles1`|
-
-
-
 
 # Goal: list
 
