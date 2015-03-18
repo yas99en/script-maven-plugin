@@ -1,6 +1,7 @@
 ### 0.5.0 / XXX
 
-* added goal `oneline`.
+* added goal `eval`.
+* added goal `cli`.
 * added URL support for scriptFile
 
 ### 0.0.3 / 2015-3-6

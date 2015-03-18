@@ -11,36 +11,36 @@ import org.apache.maven.plugins.annotations.Parameter;
 /**
  * Executes one line script.
  */
-@Mojo(name = "oneline")
-public class OneLineMojo extends AbstractMojo {
+@Mojo(name = "cli")
+public class CliMojo extends AbstractMojo {
     private final ExecuteMojo executeMojo = new ExecuteMojo();
 
     @Parameter(defaultValue = "${session}", readonly = true)
     private MavenSession session;
 
-    @Parameter(property="scriptmvn.engine1", defaultValue = "javascript")
-    private String engine1;
+    @Parameter(property="scriptmvn.cli.engine", defaultValue = "javascript")
+    private String cliEngine;
 
-    @Parameter(property="scriptmvn.arguments1")
-    private String[] arguments1;
+    @Parameter(property="scriptmvn.cli.arguments")
+    private String[] cliArguments;
 
-    @Parameter(property="scriptmvn.scriptFiles1")
-    private List<String> scriptFiles1;
+    @Parameter(property="scriptmvn.cli.scriptFiles")
+    private List<String> cliScriptFiles;
 
-    @Parameter(property="scriptmvn.scriptFile1")
-    private String scriptFile1;
+    @Parameter(property="scriptmvn.cli.scriptFile")
+    private String cliScriptFile;
 
-    @Parameter(property="scriptmvn.script1")
-    private String script1;
+    @Parameter(property="scriptmvn.cli.script")
+    private String cliScript;
 
     @Override
     public void execute() throws MojoExecutionException {
         executeMojo.setSession(session);
-        executeMojo.setEngine(engine1);
-        executeMojo.setArguments(arguments1);
-        executeMojo.setScriptFiles(scriptFiles1);
-        executeMojo.setScriptFile(scriptFile1);
-        executeMojo.setScript(script1);
+        executeMojo.setEngine(cliEngine);
+        executeMojo.setArguments(cliArguments);
+        executeMojo.setScriptFiles(cliScriptFiles);
+        executeMojo.setScriptFile(cliScriptFile);
+        executeMojo.setScript(cliScript);
         executeMojo.setGlobalLog(true);
         executeMojo.setGlobalProject(true);
         executeMojo.setGlobalSettings(true);

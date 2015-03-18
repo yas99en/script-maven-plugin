@@ -8,35 +8,35 @@ import org.apache.maven.plugins.annotations.Parameter;
 /**
  * evaluate maven variable
  */
-@Mojo(name = "mvneval")
-public class MvnEvalMojo extends AbstractMojo {
+@Mojo(name = "eval")
+public class EvalMojo extends AbstractMojo {
 
-    @Parameter(property="scriptmvn.expression")
-    private String expression;
+    @Parameter(property="scriptmvn.eval.expression")
+    private String evalExpression;
 
-    @Parameter(property="scriptmvn.expressions")
-    private String[] expressions;
+    @Parameter(property="scriptmvn.eval.expressions")
+    private String[] evalExpressions;
 
-    @Parameter(property="scriptmvn.output", defaultValue="sys")
-    private String output;
+    @Parameter(property="scriptmvn.eval.output", defaultValue="out")
+    private String evalOutput;
 
     @Override
     public void execute() throws MojoExecutionException {
-        if(expression != null) {
-            print(expression);
+        if(evalExpression != null) {
+            print(evalExpression);
         }
 
-        if(expressions != null) {
-            for(String exp: expressions) {
+        if(evalExpressions != null) {
+            for(String exp: evalExpressions) {
                 print(exp);
             }
         }
     }
 
     private void print(String str) {
-        if(output.equals("log")) {
+        if(evalOutput.equals("log")) {
             getLog().info(str);
-        } else if(output.equals("err")) {
+        } else if(evalOutput.equals("err")) {
             System.err.println(str);
         } else {
             System.out.println(str);

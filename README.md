@@ -459,52 +459,52 @@ log.info("hello python " + project.basedir.toString());
       </plugin>
 ```
 
-# Goal: oneline
+# Goal: cli
 
-* `script:oneline`: executes scripts. It is almost same as `script:execute`. 
-But it is intended to use for one line script.
+* `script:cli`: executes scripts. It is almost same as `script:execute`. 
+But it is intended to use for command line.
 * `project.version` can be got as follows:
     * It does not require the configuration in pom.xml.
-    * If there is the configuration for `oneline` goal in pom.xml, 
+    * If there is the configuration for `cli` goal in pom.xml, 
       it will be reflected.
     * Some options can be overridden by commnad line,
       but another options can not be.
       It may be a bug or a specification of maven.
 
 ```
-$ mvn -q io.github.yas99en:script-maven-plugin:0.5.0:oneline -Dscriptmvn.script1='Packages.java.lang.System.out.println(project.version);'
+$ mvn -q io.github.yas99en:script-maven-plugin:0.5.0:cli -Dscriptmvn.cliScript='Packages.java.lang.System.out.println(project.version);'
 ```
 
 ## Configuration Options
 
 | Option | Default Value | Explanation  |
 | ------ |:------------: | ------------ |
-| engine1 |javascript|samle as `engine` for `execute`. **sytem property**: `scriptmvn.engine1`|
-| arguments1 | [] |samle as `arguments` for `execute`. **sytem property**: `scriptmvn.arguments1`|
-| script1 ||samle as `script` for `execute`. **sytem property**: `scriptmvn.script1`|
-| scriptFile1 ||samle as `scriptFile` for `execute`. **sytem property**: `scriptmvn.scriptFile1`|
-| scriptFiles1 ||samle as `scriptFiles` for `execute`. **sytem property**: `scriptmvn.scriptFiles1`|
+| cliEngine |javascript|samle as `engine` for `execute`. **sytem property**: `scriptmvn.cli.engine`|
+| cliArguments | [] |samle as `arguments` for `execute`. **sytem property**: `scriptmvn.cli.arguments`|
+| cliScript ||samle as `script` for `execute`. **sytem property**: `scriptmvn.cli.script`|
+| cliScriptFile ||samle as `scriptFile` for `execute`. **sytem property**: `scriptmvn.cli.scriptFile`|
+| cliScriptFiles ||samle as `scriptFiles` for `execute`. **sytem property**: `scriptmvn.cli.scriptFiles`|
 
-# Goal: mvneval
+# Goal: eval
 
-* `script:mvneval`: evaluates a maven expression.
+* `script:eval`: evaluates a maven expression.
 * This goal uses only the native maven mechanism, does not use any scripting engine.
 * `project.version` can be got as follows:
 ```
-$ mvn -q io.github.yas99en:script-maven-plugin:0.5.0:eval -Dscriptmvn.expression='${project.version}'
+$ mvn -q io.github.yas99en:script-maven-plugin:0.5.0:eval -Dscriptmvn.eval.expression='${project.version}'
 ```
 * `project.version` and `project.finalName` can be got as follows:
 ```
-$ mvn -q io.github.yas99en:script-maven-plugin:0.5.0:eval -Dscriptmvn.expressions='version:${project.version},finalName:${project.build.finalName}
+$ mvn -q io.github.yas99en:script-maven-plugin:0.5.0:eval -Dscriptmvn.eval.expressions='version:${project.version},finalName:${project.build.finalName}'
 ```
 
 ## Configuration Options
 
 | Option | Default Value | Explanation  |
 | ------ |:------------: | ------------ |
-| expression || single string. **sytem property**: `scriptmvn.expression`|
-| expressions || array of strings. **sytem property**: `scriptmvn.expressions`|
-| output |out|specifies the output method. "out": uses System.out.println. "err" uses System.err.println. "log" uses the maven log. |
+| evalExpression || single string. **sytem property**: `scriptmvn.eval.expression`|
+| evalExpressions || array of strings. **sytem property**: `scriptmvn.eval.expressions`|
+| evalOutput |out|specifies the output method. "out": uses System.out.println. "err" uses System.err.println. "log" uses the maven log. |
 
 
 
