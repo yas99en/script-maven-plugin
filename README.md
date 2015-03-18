@@ -485,6 +485,29 @@ $ mvn -q io.github.yas99en:script-maven-plugin:0.5.0:oneline -Dscriptmvn.script1
 | scriptFile1 ||samle as `scriptFile` for `execute`. **sytem property**: `scriptmvn.scriptFile1`|
 | scriptFiles1 ||samle as `scriptFiles` for `execute`. **sytem property**: `scriptmvn.scriptFiles1`|
 
+# Goal: mvneval
+
+* `script:mvneval`: evaluates a maven expression.
+* This goal uses only the native maven mechanism, does not use any scripting engine.
+* `project.version` can be got as follows:
+```
+$ mvn -q io.github.yas99en:script-maven-plugin:0.5.0:eval -Dscriptmvn.expression='${project.version}'
+```
+* `project.version` and `project.finalName` can be got as follows:
+```
+$ mvn -q io.github.yas99en:script-maven-plugin:0.5.0:eval -Dscriptmvn.expressions='version:${project.version},finalName:${project.build.finalName}
+```
+
+## Configuration Options
+
+| Option | Default Value | Explanation  |
+| ------ |:------------: | ------------ |
+| expression || single string. **sytem property**: `scriptmvn.expression`|
+| expressions || array of strings. **sytem property**: `scriptmvn.expressions`|
+| output |out|specifies the output method. "out": uses System.out.println. "err" uses System.err.println. "log" uses the maven log. |
+
+
+
 # Goal: list
 
 * `script:list`: list all script engine information. Any one of `Names` can be used as the option `engine`.
