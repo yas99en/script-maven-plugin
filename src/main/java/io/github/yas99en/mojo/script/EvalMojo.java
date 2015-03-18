@@ -6,7 +6,8 @@ import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 
 /**
- * evaluate maven variable
+ * Evaluates maven variable
+ * This goal does not use any script engine.
  */
 @Mojo(name = "eval")
 public class EvalMojo extends AbstractMojo {

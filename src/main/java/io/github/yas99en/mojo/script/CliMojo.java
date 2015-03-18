@@ -9,7 +9,8 @@ import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 
 /**
- * Executes one line script.
+ * Executes scripts.
+ * Intended to be used for command line.
  */
 @Mojo(name = "cli")
 public class CliMojo extends AbstractMojo {
