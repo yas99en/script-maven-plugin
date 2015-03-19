@@ -1,6 +1,6 @@
 ### 0.5.0 / XXX
 
-* added goal `eval`.
+* added goal `echo`.
 * added goal `cli`.
 * added URL support for scriptFile
 
