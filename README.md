@@ -5,6 +5,17 @@
 Executes scripts in maven build.
 This plugin is based on 'JSR 223: Scripting for the Java Platform'.
 
+# Table of contents
+
+* [Goal: execute](#goal-execute)
+  - [Configuration Options](#configuration-options)
+  - [Global variables](#global-variables)
+  - [Usage](#usage)
+  - [Example Configurations](#example-configurations)
+* [Goal: cli](#goal-cli)
+* [Goal: eval](#goal-eval)
+* [Goal: list](#goal-list)
+
 
 # Goal: execute
 
