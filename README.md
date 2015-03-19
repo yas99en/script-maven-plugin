@@ -13,7 +13,7 @@ This plugin is based on 'JSR 223: Scripting for the Java Platform'.
   - [Usage](#usage)
   - [Example Configurations](#example-configurations)
 * [Goal: cli](#goal-cli)
-* [Goal: eval](#goal-eval)
+* [Goal: echo](#goal-echo)
 * [Goal: list](#goal-list)
 
 
@@ -496,26 +496,26 @@ $ mvn -q io.github.yas99en:script-maven-plugin:0.5.0:cli -Dscriptmvn.cliScript='
 | cliScriptFile ||samle as `scriptFile` for `execute`. **sytem property**: `scriptmvn.cli.scriptFile`|
 | cliScriptFiles ||samle as `scriptFiles` for `execute`. **sytem property**: `scriptmvn.cli.scriptFiles`|
 
-# Goal: eval
+# Goal: echo
 
-* `script:eval`: evaluates a maven expression.
+* `script:echo`: echos a message.
 * This goal uses only the native maven mechanism, does not use any scripting engine.
 * `project.version` can be got as follows:
 ```
-$ mvn -q io.github.yas99en:script-maven-plugin:0.5.0:eval -Dscriptmvn.eval.expression='${project.version}'
+$ mvn -q io.github.yas99en:script-maven-plugin:0.5.0:echo -Dscriptmvn.echo.message='${project.version}'
 ```
 * `project.version` and `project.finalName` can be got as follows:
 ```
-$ mvn -q io.github.yas99en:script-maven-plugin:0.5.0:eval -Dscriptmvn.eval.expressions='version:${project.version},finalName:${project.build.finalName}'
+$ mvn -q io.github.yas99en:script-maven-plugin:0.5.0:echo -Dscriptmvn.echo.messages='version:${project.version},finalName:${project.build.finalName}'
 ```
 
 ## Configuration Options
 
 | Option | Default Value | Explanation  |
 | ------ |:------------: | ------------ |
-| evalExpression || single string. **sytem property**: `scriptmvn.eval.expression`|
-| evalExpressions || array of strings. **sytem property**: `scriptmvn.eval.expressions`|
-| evalOutput |out|specifies the output method. "out": uses System.out.println. "err" uses System.err.println. "log" uses the maven log. |
+| echoMessage || single string. **sytem property**: `scriptmvn.echo.message`|
+| echoMessages || array of strings. **sytem property**: `scriptmvn.echo.messages`|
+| echoOutput |out|specifies the output method. "out": uses System.out.println. "err" uses System.err.println. "log" uses the maven log info. "error", "warn", "info", "debug" use the maven log in each level.|
 
 
 
