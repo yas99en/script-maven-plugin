@@ -25,17 +25,17 @@ public class EchoMojo extends AbstractMojo {
     @Override
     public void execute() throws MojoExecutionException {
         if(echoMessage != null) {
-            print(echoMessage);
+            echo(echoMessage);
         }
 
         if(echoMessages != null) {
             for(String exp: echoMessages) {
-                print(exp);
+                echo(exp);
             }
         }
     }
 
-    private void print(String str) {
+    private void echo(String str) {
         if(echoOutput.equals("log")) {
             getLog().info(str);
         } else if(echoOutput.equals("error")) {
