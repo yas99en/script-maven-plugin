@@ -1,4 +1,4 @@
-### 0.5.0 / XXX
+### 1.0.0 / XXX
 
 * added goal `echo`.
 * added goal `cli`.

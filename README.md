@@ -70,7 +70,7 @@ pom.xml
       <plugin>
         <groupId>io.github.yas99en</groupId>
         <artifactId>script-maven-plugin</artifactId>
-        <version>0.5.0</version>
+        <version>1.0.0</version>
 
         <configuration>
           <engine>javascript</engine>
@@ -95,7 +95,7 @@ pom.xml
       <plugin>
         <groupId>io.github.yas99en</groupId>
         <artifactId>script-maven-plugin</artifactId>
-        <version>0.5.0</version>
+        <version>1.0.0</version>
 
         <configuration>
           <engine>javascript</engine>
@@ -120,7 +120,7 @@ pom.xml
       <plugin>
         <groupId>io.github.yas99en</groupId>
         <artifactId>script-maven-plugin</artifactId>
-        <version>0.5.0</version>
+        <version>1.0.0</version>
 
         <configuration>
           <engine>javascript</engine>
@@ -145,7 +145,7 @@ pom.xml
       <plugin>
         <groupId>io.github.yas99en</groupId>
         <artifactId>script-maven-plugin</artifactId>
-        <version>0.5.0</version>
+        <version>1.0.0</version>
         <executions>
           <execution>
             <phase>prepare-package</phase>
@@ -181,7 +181,7 @@ The script is executed in prepare-pakcage phase.
       <plugin>
         <groupId>io.github.yas99en</groupId>
         <artifactId>script-maven-plugin</artifactId>
-        <version>0.5.0</version>
+        <version>1.0.0</version>
 
         <configuration>
           <engine>ruby</engine>
@@ -225,7 +225,7 @@ The arguments can be passed by command line.
       <plugin>
         <groupId>io.github.yas99en</groupId>
         <artifactId>script-maven-plugin</artifactId>
-        <version>0.5.0</version>
+        <version>1.0.0</version>
 
         <configuration>
           <engine>javascript</engine>
@@ -256,7 +256,7 @@ javascript
       <plugin>
         <groupId>io.github.yas99en</groupId>
         <artifactId>script-maven-plugin</artifactId>
-        <version>0.5.0</version>
+        <version>1.0.0</version>
 
         <configuration>
           <engine>javascript</engine>
@@ -285,7 +285,7 @@ javascript from file
       <plugin>
         <groupId>io.github.yas99en</groupId>
         <artifactId>script-maven-plugin</artifactId>
-        <version>0.5.0</version>
+        <version>1.0.0</version>
 
         <configuration>
           <engine>javascript</engine>
@@ -304,7 +304,7 @@ javascript from multile files
       <plugin>
         <groupId>io.github.yas99en</groupId>
         <artifactId>script-maven-plugin</artifactId>
-        <version>0.5.0</version>
+        <version>1.0.0</version>
 
         <configuration>
           <engine>javascript</engine>
@@ -326,7 +326,7 @@ rhino for jdk8 or later
       <plugin>
         <groupId>io.github.yas99en</groupId>
         <artifactId>script-maven-plugin</artifactId>
-        <version>0.5.0</version>
+        <version>1.0.0</version>
 
         <configuration>
           <engine>javascript</engine>
@@ -353,7 +353,7 @@ ruby
       <plugin>
         <groupId>io.github.yas99en</groupId>
         <artifactId>script-maven-plugin</artifactId>
-        <version>0.5.0</version>
+        <version>1.0.0</version>
 
         <configuration>
           <engine>ruby</engine>
@@ -381,7 +381,7 @@ groovy
       <plugin>
         <groupId>io.github.yas99en</groupId>
         <artifactId>script-maven-plugin</artifactId>
-        <version>0.5.0</version>
+        <version>1.0.0</version>
 
         <configuration>
           <engine>groovy</engine>
@@ -408,7 +408,7 @@ python
       <plugin>
         <groupId>io.github.yas99en</groupId>
         <artifactId>script-maven-plugin</artifactId>
-        <version>0.5.0</version>
+        <version>1.0.0</version>
 
         <configuration>
           <engine>python</engine>
@@ -436,7 +436,7 @@ log.info("hello python " + project.basedir.toString());
       <plugin>
         <groupId>io.github.yas99en</groupId>
         <artifactId>script-maven-plugin</artifactId>
-        <version>0.5.0</version>
+        <version>1.0.0</version>
         
         <configuration>
           <engine>rhino</engine>
@@ -485,7 +485,7 @@ But it is intended to use for command line.
       It may be a bug or a specification of maven.
 
 ```
-$ mvn -q io.github.yas99en:script-maven-plugin:0.5.0:cli -Dscriptmvn.cliScript='Packages.java.lang.System.out.println(project.version);'
+$ mvn -q io.github.yas99en:script-maven-plugin:1.0.0:cli -Dscriptmvn.cli.script='Packages.java.lang.System.out.println(project.version);'
 ```
 
 ## Configuration Options
@@ -504,11 +504,11 @@ $ mvn -q io.github.yas99en:script-maven-plugin:0.5.0:cli -Dscriptmvn.cliScript='
 * This goal uses only the native maven mechanism, does not use any scripting engine.
 * `project.version` can be got as follows:
 ```
-$ mvn -q io.github.yas99en:script-maven-plugin:0.5.0:echo -Dscriptmvn.echo.message='${project.version}'
+$ mvn -q io.github.yas99en:script-maven-plugin:1.0.0:echo -Dscriptmvn.echo.message='${project.version}'
 ```
 * `project.version` and `project.finalName` can be got as follows:
 ```
-$ mvn -q io.github.yas99en:script-maven-plugin:0.5.0:echo -Dscriptmvn.echo.messages='version:${project.version},finalName:${project.build.finalName}'
+$ mvn -q io.github.yas99en:script-maven-plugin:1.0.0:echo -Dscriptmvn.echo.messages='version:${project.version},finalName:${project.build.finalName}'
 ```
 
 ## Configuration Options
