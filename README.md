@@ -12,6 +12,7 @@ This plugin is based on 'JSR 223: Scripting for the Java Platform'.
   - [Global variables](#global-variables)
   - [Usage](#usage)
   - [Example Configurations](#example-configurations)
+  - [AntBuilder](#antbuilder)
 * [Goal: cli](#goal-cli)
 * [Goal: echo](#goal-echo)
 * [Goal: list](#goal-list)
@@ -428,6 +429,7 @@ log.info("hello python " + project.basedir.toString());
         </dependencies>
        </plugin>
 ```
+
 ## AntBuilder
 
 ```
