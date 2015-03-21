@@ -512,7 +512,7 @@ The followings can be specified by only the system properties.
 * This goal uses only the native maven mechanism, does not use any scripting engine.
 * `project.version` can be got as follows:
 ```
-$ mvn -q io.github.yas99en:script-maven-plugin:1.0.0:echo -Dscriptmvn.echo.message='${project.version}'
+$ mvn -q io.github.yas99en:script-maven-plugin:1.0.0:echo -Dscriptmvn.echo.messages='${project.version}'
 ```
 * `project.version` and `project.finalName` can be got as follows:
 ```
@@ -523,7 +523,6 @@ $ mvn -q io.github.yas99en:script-maven-plugin:1.0.0:echo -Dscriptmvn.echo.messa
 
 | Option | Default Value | Explanation  |
 | ------ |:------------: | ------------ |
-| echoMessage || single string. **sytem property**: `scriptmvn.echo.message`|
 | echoMessages || array of strings. **sytem property**: `scriptmvn.echo.messages`|
 
 ## System property

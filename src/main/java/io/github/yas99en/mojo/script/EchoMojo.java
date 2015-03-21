@@ -13,9 +13,6 @@ import org.apache.maven.plugins.annotations.Parameter;
 @Mojo(name="echo")
 public final class EchoMojo extends AbstractMojo {
 
-    @Parameter(property="scriptmvn.echo.message")
-    private String echoMessage;
-
     @Parameter(property="scriptmvn.echo.messages")
     private String[] echoMessages;
 
@@ -25,10 +22,6 @@ public final class EchoMojo extends AbstractMojo {
     public void execute() throws MojoExecutionException {
         if(System.getProperty("scriptmvn.echo.output") != null) {
             echoOutput = System.getProperty("scriptmvn.echo.output");
-        }
-
-        if(echoMessage != null) {
-            echo(echoMessage);
         }
 
         if(echoMessages != null) {
