@@ -492,11 +492,19 @@ $ mvn -q io.github.yas99en:script-maven-plugin:1.0.0:cli -Dscriptmvn.cli.script=
 
 | Option | Default Value | Explanation  |
 | ------ |:------------: | ------------ |
-| cliEngine |javascript|same as `engine` for `execute`. **sytem property**: `scriptmvn.cli.engine`|
 | cliArguments | [] |same as `arguments` for `execute`. **sytem property**: `scriptmvn.cli.arguments`|
-| cliScript ||same as `script` for `execute`. **sytem property**: `scriptmvn.cli.script`|
-| cliScriptFile ||same as `scriptFile` for `execute`. **sytem property**: `scriptmvn.cli.scriptFile`|
 | cliScriptFiles ||same as `scriptFiles` for `execute`. **sytem property**: `scriptmvn.cli.scriptFiles`|
+
+## System property
+
+The followings can be specified by only the system properties.
+
+| Option | Default Value | Explanation  |
+| ------ |:------------: | ------------ |
+| scriptmvn.cli.engine |javascript|script engine name.|
+| scriptmvn.cli.script ||inline script.|
+
+
 
 # Goal: echo
 
@@ -519,6 +527,8 @@ $ mvn -q io.github.yas99en:script-maven-plugin:1.0.0:echo -Dscriptmvn.echo.messa
 | echoMessages || array of strings. **sytem property**: `scriptmvn.echo.messages`|
 
 ## System property
+
+The followings can be specified by only the system properties.
 
 | name | Default Value | Explanation  |
 | ------ |:------------: | ------------ |

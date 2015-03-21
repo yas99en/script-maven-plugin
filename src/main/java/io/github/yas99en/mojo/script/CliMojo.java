@@ -19,29 +19,19 @@ public final class CliMojo extends AbstractMojo {
     @Parameter(defaultValue = "${session}", readonly = true)
     private MavenSession session;
 
-    @Parameter(property="scriptmvn.cli.engine", defaultValue = "javascript")
-    private String cliEngine;
-
     @Parameter(property="scriptmvn.cli.arguments")
     private String[] cliArguments;
 
     @Parameter(property="scriptmvn.cli.scriptFiles")
     private List<String> cliScriptFiles;
 
-    @Parameter(property="scriptmvn.cli.scriptFile")
-    private String cliScriptFile;
-
-    @Parameter(property="scriptmvn.cli.script")
-    private String cliScript;
-
     @Override
     public void execute() throws MojoExecutionException {
         executeMojo.setSession(session);
-        executeMojo.setEngine(cliEngine);
+        executeMojo.setEngine(System.getProperty("scriptmvn.cli.engine", "javascript"));
         executeMojo.setArguments(cliArguments);
         executeMojo.setScriptFiles(cliScriptFiles);
-        executeMojo.setScriptFile(cliScriptFile);
-        executeMojo.setScript(cliScript);
+        executeMojo.setScript(System.getProperty("scriptmvn.cli.script"));
         executeMojo.setGlobalLog(true);
         executeMojo.setGlobalProject(true);
         executeMojo.setGlobalSettings(true);
