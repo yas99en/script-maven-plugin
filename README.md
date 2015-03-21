@@ -492,11 +492,11 @@ $ mvn -q io.github.yas99en:script-maven-plugin:1.0.0:cli -Dscriptmvn.cli.script=
 
 | Option | Default Value | Explanation  |
 | ------ |:------------: | ------------ |
-| cliEngine |javascript|samle as `engine` for `execute`. **sytem property**: `scriptmvn.cli.engine`|
-| cliArguments | [] |samle as `arguments` for `execute`. **sytem property**: `scriptmvn.cli.arguments`|
-| cliScript ||samle as `script` for `execute`. **sytem property**: `scriptmvn.cli.script`|
-| cliScriptFile ||samle as `scriptFile` for `execute`. **sytem property**: `scriptmvn.cli.scriptFile`|
-| cliScriptFiles ||samle as `scriptFiles` for `execute`. **sytem property**: `scriptmvn.cli.scriptFiles`|
+| cliEngine |javascript|same as `engine` for `execute`. **sytem property**: `scriptmvn.cli.engine`|
+| cliArguments | [] |same as `arguments` for `execute`. **sytem property**: `scriptmvn.cli.arguments`|
+| cliScript ||same as `script` for `execute`. **sytem property**: `scriptmvn.cli.script`|
+| cliScriptFile ||same as `scriptFile` for `execute`. **sytem property**: `scriptmvn.cli.scriptFile`|
+| cliScriptFiles ||same as `scriptFiles` for `execute`. **sytem property**: `scriptmvn.cli.scriptFiles`|
 
 # Goal: echo
 

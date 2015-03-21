@@ -29,19 +29,19 @@ public final class Mvn {
         throw new MojoExecutionException(msg);
     }
 
-	public String getScriptFile() {
-		return scriptFile;
-	}
+    public String getScriptFile() {
+        return scriptFile;
+    }
 
-	void setScriptFile(String scriptFile) {
-		this.scriptFile = scriptFile;
-	}
+    void setScriptFile(String scriptFile) {
+        this.scriptFile = scriptFile;
+    }
 
-	public String[] getArguments() {
-		return arguments;
-	}
+    public String[] getArguments() {
+        return arguments;
+    }
 
-	void setArguments(String[] arguments) {
-		this.arguments = arguments;
-	}
+    void setArguments(String[] arguments) {
+        this.arguments = arguments;
+    }
 }
