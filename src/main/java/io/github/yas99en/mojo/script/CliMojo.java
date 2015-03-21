@@ -12,8 +12,8 @@ import org.apache.maven.plugins.annotations.Parameter;
  * Executes scripts.
  * Intended to be used for command line.
  */
-@Mojo(name = "cli")
-public class CliMojo extends AbstractMojo {
+@Mojo(name="cli")
+public final class CliMojo extends AbstractMojo {
     private final ExecuteMojo executeMojo = new ExecuteMojo();
 
     @Parameter(defaultValue = "${session}", readonly = true)

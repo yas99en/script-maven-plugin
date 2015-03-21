@@ -13,8 +13,8 @@ import org.apache.maven.plugins.annotations.Mojo;
 /**
  * Lists all script engine information.
  */
-@Mojo(name = "list")
-public class ListMojo extends AbstractMojo {
+@Mojo(name="list")
+public final class ListMojo extends AbstractMojo {
 
     @Override
     public void execute() throws MojoExecutionException {

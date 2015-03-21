@@ -10,8 +10,8 @@ import org.apache.maven.plugins.annotations.Parameter;
  * This goal does not use any script engine.
  * The maven variables can be used in the message.
  */
-@Mojo(name = "echo")
-public class EchoMojo extends AbstractMojo {
+@Mojo(name="echo")
+public final class EchoMojo extends AbstractMojo {
 
     @Parameter(property="scriptmvn.echo.message")
     private String echoMessage;
