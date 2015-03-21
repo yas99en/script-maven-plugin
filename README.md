@@ -517,7 +517,10 @@ $ mvn -q io.github.yas99en:script-maven-plugin:1.0.0:echo -Dscriptmvn.echo.messa
 | ------ |:------------: | ------------ |
 | echoMessage || single string. **sytem property**: `scriptmvn.echo.message`|
 | echoMessages || array of strings. **sytem property**: `scriptmvn.echo.messages`|
-| echoOutput |out|specifies the output method. "out": uses System.out.println. "err" uses System.err.println. "log" uses the maven log info. "error", "warn", "info", "debug" use the maven log in each level.|
+
+## System property
+
+| scriptmvn.echo.output |out|specifies the output method. "out": uses System.out.println. "err" uses System.err.println. "log" uses the maven log info. "error", "warn", "info", "debug" use the maven log in each level.|
 
 
 

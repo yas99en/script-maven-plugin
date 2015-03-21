@@ -19,8 +19,7 @@ public class EchoMojo extends AbstractMojo {
     @Parameter(property="scriptmvn.echo.messages")
     private String[] echoMessages;
 
-    @Parameter(property="scriptmvn.echo.output", defaultValue="out")
-    private String echoOutput;
+    private String echoOutput = "out";
 
     @Override
     public void execute() throws MojoExecutionException {
