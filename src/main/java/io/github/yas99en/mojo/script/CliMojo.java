@@ -47,6 +47,7 @@ public class CliMojo extends AbstractMojo {
         executeMojo.setGlobalSettings(true);
         executeMojo.setPrefix("mvn");
         executeMojo.setLog(getLog());
+        executeMojo.setPluginContext(getPluginContext());
         executeMojo.execute();
     }
 

@@ -24,6 +24,10 @@ public class EchoMojo extends AbstractMojo {
 
     @Override
     public void execute() throws MojoExecutionException {
+        if(System.getProperty("scriptmvn.echo.output") != null) {
+            echoOutput = System.getProperty("scriptmvn.echo.output");
+        }
+
         if(echoMessage != null) {
             echo(echoMessage);
         }
