@@ -508,7 +508,7 @@ The followings can be specified by only the system properties.
 
 # Goal: echo
 
-* `script:echo`: echos a message.
+* `script:echo`: echos messages.
 * This goal uses only the native maven mechanism, does not use any scripting engine.
 * `project.version` can be got as follows:
 ```
