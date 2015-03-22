@@ -488,12 +488,6 @@ But it is intended to use for command line.
 $ mvn -q io.github.yas99en:script-maven-plugin:1.0.0:cli -Dscriptmvn.cli.script='Packages.java.lang.System.out.println(project.version);'
 ```
 
-## Configuration Options
-
-| Option | Default Value | Explanation  |
-| ------ |:------------: | ------------ |
-| cliArguments | [] |same as `arguments` for `execute`. **sytem property**: `scriptmvn.cli.arguments`|
-
 ## System property
 
 The followings can be specified by only the system properties.
