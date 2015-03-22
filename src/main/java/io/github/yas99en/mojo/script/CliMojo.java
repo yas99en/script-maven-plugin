@@ -8,7 +8,7 @@ import org.apache.maven.plugins.annotations.Parameter;
 
 /**
  * Executes scripts.
- * Intended to be used for command line.
+ * Intended to be used from command line.
  */
 @Mojo(name="cli")
 public final class CliMojo extends AbstractMojo {
