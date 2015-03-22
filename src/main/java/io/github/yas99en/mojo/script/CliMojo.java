@@ -17,14 +17,11 @@ public final class CliMojo extends AbstractMojo {
     @Parameter(defaultValue = "${session}", readonly = true)
     private MavenSession session;
 
-    @Parameter(property="scriptmvn.cli.arguments")
-    private String[] cliArguments;
-
     @Override
     public void execute() throws MojoExecutionException {
         executeMojo.setSession(session);
         executeMojo.setEngine(System.getProperty("scriptmvn.cli.engine", "javascript"));
-        executeMojo.setArguments(cliArguments);
+        executeMojo.setArguments(getArguments() );
         executeMojo.setScriptFiles(null);
         executeMojo.setScript(System.getProperty("scriptmvn.cli.script"));
         executeMojo.setScriptFile(System.getProperty("scriptmvn.cli.scriptFile"));
@@ -38,4 +35,8 @@ public final class CliMojo extends AbstractMojo {
         executeMojo.execute();
     }
 
+    private String[] getArguments() {
+        String arguments = System.getProperty("scriptmvn.cli.arguments", "");
+        return arguments.split(",");
+    }
 }
