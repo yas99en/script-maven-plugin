@@ -189,6 +189,10 @@ public final class ExecuteMojo extends AbstractMojo {
         this.session = session;
     }
 
+    void setExecution(MojoExecution execution) {
+        this.execution = execution;
+    }
+
     void setEngine(String engine) {
         this.engine = engine;
     }
