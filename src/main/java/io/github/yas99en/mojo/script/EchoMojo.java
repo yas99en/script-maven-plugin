@@ -12,7 +12,7 @@ import org.codehaus.plexus.component.configurator.expression.ExpressionEvaluatio
 /**
  * Echo message.
  * This goal does not use any script engine.
- * The maven variables can be used in the message.
+ * The maven expression can be used in the message.
  */
 @Mojo(name="echo")
 public final class EchoMojo extends AbstractMojo {
