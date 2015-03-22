@@ -475,14 +475,12 @@ log.info("hello python " + project.basedir.toString());
 # Goal: cli
 
 * `script:cli`: executes scripts. It is almost same as `script:execute`. 
-But it is intended to use for command line.
+But it is intended to be used from command line.
 * `project.version` can be got as follows:
     * It does not require the configuration in pom.xml.
-    * If there is the configuration for `cli` goal in pom.xml, 
-      it will be reflected.
-    * Some options can be overridden by commnad line,
-      but another options can not be.
-      It may be a bug or a specification of maven.
+    * But if the engine other than javascript is needed, 
+    the configuration in pom.xml is required.
+
 
 ```
 $ mvn -q io.github.yas99en:script-maven-plugin:1.0.0:cli -Dscriptmvn.cli.script='Packages.java.lang.System.out.println(project.version);'
@@ -491,19 +489,20 @@ $ mvn -q io.github.yas99en:script-maven-plugin:1.0.0:cli -Dscriptmvn.cli.script=
 ## System property
 
 The followings can be specified by only the system properties.
+The maven expression can not be used in these properties.
 
 | Option | Default Value | Explanation  |
 | ------ |:------------: | ------------ |
-| scriptmvn.cli.engine |javascript|script engine name. If a relative path is given, it is treated as a relative path to current directory.|
+| scriptmvn.cli.engine |javascript|script engine name.|
 | scriptmvn.cli.script ||inline script.|
-| scriptmvn.cli.scriptFile ||script file name.|
+| scriptmvn.cli.scriptFile ||script file name. If a relative path is given, it is treated as a relative path to current directory.|
 | scriptmvn.cli.arguments ||commna separated arguments.|
 
 
 
 # Goal: echo
 
-* `script:echo`: echos messages.
+* `script:echo`: echos a message.
 * This goal uses only the native maven mechanism, does not use any scripting engine.
 * `project.version` can be got as follows:
 ```
