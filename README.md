@@ -493,7 +493,6 @@ $ mvn -q io.github.yas99en:script-maven-plugin:1.0.0:cli -Dscriptmvn.cli.script=
 | Option | Default Value | Explanation  |
 | ------ |:------------: | ------------ |
 | cliArguments | [] |same as `arguments` for `execute`. **sytem property**: `scriptmvn.cli.arguments`|
-| cliScriptFiles ||same as `scriptFiles` for `execute`. **sytem property**: `scriptmvn.cli.scriptFiles`|
 
 ## System property
 
@@ -503,6 +502,7 @@ The followings can be specified by only the system properties.
 | ------ |:------------: | ------------ |
 | scriptmvn.cli.engine |javascript|script engine name.|
 | scriptmvn.cli.script ||inline script.|
+| scriptmvn.cli.scriptFile ||script file name.|
 
 
 

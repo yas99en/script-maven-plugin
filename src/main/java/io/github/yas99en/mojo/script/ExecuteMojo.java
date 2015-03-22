@@ -60,6 +60,8 @@ public final class ExecuteMojo extends AbstractMojo {
     @Parameter(defaultValue = "mvn")
     private String prefix;
 
+    private boolean relativeToProject = true;
+
     private Log log;
 
     public void execute() throws MojoExecutionException {
@@ -97,11 +99,11 @@ public final class ExecuteMojo extends AbstractMojo {
         }
 
         if(scriptFiles != null) {
-            evalScriptFiles(eng, mvn, scriptFiles, arguments);
+            evalScriptFiles(eng, mvn, scriptFiles, arguments, relativeToProject);
         }
 
         if(scriptFile != null) {
-            evalScriptFile(eng, mvn, scriptFile, arguments);
+            evalScriptFile(eng, mvn, scriptFile, arguments, relativeToProject);
         }
 
         if(script != null) {
@@ -135,7 +137,7 @@ public final class ExecuteMojo extends AbstractMojo {
         eng.eval(script);
     }
 
-    private static void evalScriptFile(ScriptEngine eng, Mvn mvn, String scriptFile, String[] arguments)
+    private static void evalScriptFile(ScriptEngine eng, Mvn mvn, String scriptFile, String[] arguments, boolean relativeToProject)
             throws IOException, ScriptException {
 
         mvn.setArguments(arguments.clone());
@@ -150,7 +152,7 @@ public final class ExecuteMojo extends AbstractMojo {
             in = url.openStream();
         } else {
             File file = new File(scriptFile);
-            if(!file.isAbsolute()) {
+            if(!file.isAbsolute() && relativeToProject) {
                 file = new File(mvn.project.getBasedir(), scriptFile);
             }
             mvn.log.debug(file);
@@ -173,9 +175,9 @@ public final class ExecuteMojo extends AbstractMojo {
     }
 
     private static void evalScriptFiles(ScriptEngine eng, Mvn mvn,
-            List<String> scriptFiles, String[] arguments) throws IOException, ScriptException {
+            List<String> scriptFiles, String[] arguments, boolean relativeToProject) throws IOException, ScriptException {
         for(String scriptFile: scriptFiles) {
-            evalScriptFile(eng, mvn, scriptFile, arguments);
+            evalScriptFile(eng, mvn, scriptFile, arguments, relativeToProject);
         }
     }
 
@@ -217,5 +219,13 @@ public final class ExecuteMojo extends AbstractMojo {
 
     void setPrefix(String prefix) {
         this.prefix = prefix;
+    }
+
+    public boolean isRelativeToProject() {
+        return relativeToProject;
+    }
+
+    public void setRelativeToProject(boolean relativeToProject) {
+        this.relativeToProject = relativeToProject;
     }
 }
