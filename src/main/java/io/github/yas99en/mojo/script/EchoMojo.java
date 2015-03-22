@@ -21,7 +21,7 @@ public final class EchoMojo extends AbstractMojo {
     private MavenSession session;
     
     @Parameter(defaultValue = "${mojoExecution}", readonly = true)
-    MojoExecution execution;
+    private MojoExecution execution;
 
     private String echoOutput = "out";
 
@@ -33,7 +33,7 @@ public final class EchoMojo extends AbstractMojo {
 
         PluginParameterExpressionEvaluator evaluator = new PluginParameterExpressionEvaluator(session, execution);
         try {
-            Object obj = evaluator.evaluate(System.getProperty("scriptmvn.echo.message"));
+            Object obj = evaluator.evaluate(System.getProperty("scriptmvn.echo.message", ""));
             echo(String.valueOf(obj));
         } catch (ExpressionEvaluationException e) {
             throw new MojoExecutionException(e.getMessage(), e);
