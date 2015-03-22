@@ -11,7 +11,7 @@ import com.tngtech.java.junit.dataprovider.DataProviderRunner;
 import com.tngtech.java.junit.dataprovider.UseDataProvider;
 
 @RunWith(DataProviderRunner.class)
-public class TestCsvParser {
+public class CsvParserTest {
 
     @DataProvider
     public static Object[][] dataTestParseLine() {
