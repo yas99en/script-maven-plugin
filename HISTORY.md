@@ -1,5 +1,6 @@
 ### 1.0.0 / XXX
 
+* added mvn.mojo.
 * added goal `echo`.
 * added goal `cli`.
 * added URL support for scriptFile
