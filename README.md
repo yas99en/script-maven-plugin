@@ -512,18 +512,8 @@ The followings can be specified by only the system properties.
 * This goal uses only the native maven mechanism, does not use any scripting engine.
 * `project.version` can be got as follows:
 ```
-$ mvn -q io.github.yas99en:script-maven-plugin:1.0.0:echo -Dscriptmvn.echo.messages='${project.version}'
+$ mvn -q io.github.yas99en:script-maven-plugin:1.0.0:echo -Dscriptmvn.echo.message='${project.version}'
 ```
-* `project.version` and `project.finalName` can be got as follows:
-```
-$ mvn -q io.github.yas99en:script-maven-plugin:1.0.0:echo -Dscriptmvn.echo.messages='version:${project.version},finalName:${project.build.finalName}'
-```
-
-## Configuration Options
-
-| Option | Default Value | Explanation  |
-| ------ |:------------: | ------------ |
-| echoMessages || array of strings. **sytem property**: `scriptmvn.echo.messages`|
 
 ## System property
 
@@ -531,6 +521,7 @@ The followings can be specified by only the system properties.
 
 | name | Default Value | Explanation  |
 | ------ |:------------: | ------------ |
+|scriptmvn.echo.message||message to be printed. The maven expression can be used.|
 | scriptmvn.echo.output |out|specifies the output method. "out": uses System.out.println. "err" uses System.err.println. "log" uses the maven log info. "error", "warn", "info", "debug" use the maven log in each level.|
 
 

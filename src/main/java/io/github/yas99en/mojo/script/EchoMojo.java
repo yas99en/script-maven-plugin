@@ -23,9 +23,6 @@ public final class EchoMojo extends AbstractMojo {
     @Parameter(defaultValue = "${mojoExecution}", readonly = true)
     MojoExecution execution;
 
-    @Parameter(property="scriptmvn.echo.messages")
-    private String[] echoMessages;
-
     private String echoOutput = "out";
 
     @Override
@@ -40,12 +37,6 @@ public final class EchoMojo extends AbstractMojo {
             echo(String.valueOf(obj));
         } catch (ExpressionEvaluationException e) {
             throw new MojoExecutionException(e.getMessage(), e);
-        }
-
-        if(echoMessages != null) {
-            for(String exp: echoMessages) {
-                echo(exp);
-            }
         }
     }
 
