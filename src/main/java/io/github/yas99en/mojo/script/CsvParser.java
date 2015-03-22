@@ -18,8 +18,10 @@ public final class CsvParser {
                     builder.append(c);
                     escapeEnable = false;
                 } else {
-                    tokens.add(builder.toString());
-                    builder = new StringBuilder();
+                    if(builder.length() != 0) {
+                        tokens.add(builder.toString());
+                        builder = new StringBuilder();
+                    }
                 }
                 break;
             case '\\':
@@ -35,7 +37,7 @@ public final class CsvParser {
                 escapeEnable = false;
             }
         }
-        if(!tokens.isEmpty()) {
+        if(builder.length() != 0) {
             tokens.add(builder.toString());
         }
         return tokens.toArray(new String[0]);
