@@ -526,8 +526,12 @@ The followings can be specified by only the system properties.
 
 * `script:list`: list all script engine information. Any one of `Names` can be used as the option `engine`.
 
-execution
-
+If the configuration for this plugin is in pom.xml, 
 ```
   $ mvn script:list
 ```
+If not,
+```
+$ mvn -q io.github.yas99en:script-maven-plugin:1.0.0:list
+```
+
