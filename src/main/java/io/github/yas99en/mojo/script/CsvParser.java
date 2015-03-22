@@ -6,7 +6,7 @@ import java.util.List;
 public final class CsvParser {
     private CsvParser(){}
 
-    public static String[] splitByCommna(String str) {
+    public static String[] parseLine(String str) {
         if(str == null) {
             return new String[0];
         }

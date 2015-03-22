@@ -14,7 +14,7 @@ import com.tngtech.java.junit.dataprovider.UseDataProvider;
 public class TestCsvParser {
 
     @DataProvider
-    public static Object[][] dataTestParse() {
+    public static Object[][] dataTestParseLine() {
         return new Object[][] {
                 { "", new String[]{""} },
                 { "a", new String[]{"a"} },
@@ -39,9 +39,9 @@ public class TestCsvParser {
     }
 
     @Test
-    @UseDataProvider("dataTestParse")
-    public void testParse(String str, String[] expected) {
-        String[] actual = CsvParser.splitByCommna(str);
+    @UseDataProvider("dataTestParseLine")
+    public void testParseLine(String str, String[] expected) {
+        String[] actual = CsvParser.parseLine(str);
         System.out.println(Arrays.asList(expected) + ":" + Arrays.asList(actual));
         Assert.assertArrayEquals(expected, actual);
     }
