@@ -44,5 +44,4 @@ public final class CliMojo extends AbstractMojo {
         String arguments = System.getProperty("scriptmvn.cli.arguments");
         return CsvParser.parseLine(arguments);
     }
-    
 }
