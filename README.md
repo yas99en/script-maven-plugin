@@ -514,6 +514,8 @@ The followings can be specified by only the system properties.
 ```
 $ mvn -q io.github.yas99en:script-maven-plugin:1.0.0:echo -Dscriptmvn.echo.message='${project.version}'
 ```
+* See PluginParameterExpressionEvaluator
+http://maven.apache.org/ref/3.2.5/maven-core/apidocs/org/apache/maven/plugin/PluginParameterExpressionEvaluator.html
 
 ## System property
 
