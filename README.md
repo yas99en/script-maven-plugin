@@ -503,6 +503,7 @@ The followings can be specified by only the system properties.
 | scriptmvn.cli.engine |javascript|script engine name. If a relative path is given, it is treated as a relative path to current directory.|
 | scriptmvn.cli.script ||inline script.|
 | scriptmvn.cli.scriptFile ||script file name.|
+| scriptmvn.cli.arguments ||commna separated arguments.|
 
 
 
