@@ -17,6 +17,7 @@ import javax.script.ScriptException;
 
 import org.apache.maven.execution.MavenSession;
 import org.apache.maven.plugin.AbstractMojo;
+import org.apache.maven.plugin.MojoExecution;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.plugins.annotations.Mojo;
@@ -32,6 +33,9 @@ public final class ExecuteMojo extends AbstractMojo {
 
     @Parameter(defaultValue = "${session}", readonly = true)
     private MavenSession session;
+
+    @Parameter(defaultValue = "${mojoExecution}", readonly = true)
+    private MojoExecution execution;
 
     @Parameter(defaultValue = "javascript")
     private String engine;
@@ -90,7 +94,7 @@ public final class ExecuteMojo extends AbstractMojo {
             throw new MojoExecutionException("engine not found for: " + engine);
         }
 
-        Mvn mvn = new Mvn(session, log);
+        Mvn mvn = new Mvn(session, execution, log);
 
         setUpGlobals(eng, mvn);
 

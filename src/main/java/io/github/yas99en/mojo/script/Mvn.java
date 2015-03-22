@@ -1,6 +1,7 @@
 package io.github.yas99en.mojo.script;
 
 import org.apache.maven.execution.MavenSession;
+import org.apache.maven.plugin.MojoExecution;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.project.MavenProject;
@@ -8,14 +9,16 @@ import org.apache.maven.settings.Settings;
 
 public final class Mvn {
     public final MavenSession session;
+    public final MojoExecution mojo;
     public final MavenProject project;
     public final Settings settings;
     public final LogWrapper log;
     private String scriptFile;
     private String[] arguments;
 
-    Mvn(MavenSession session, Log log) {
+    Mvn(MavenSession session, MojoExecution mojo, Log log) {
         this.session = session;
+        this.mojo = mojo;
         this.project = session.getCurrentProject();
         this.settings = session.getSettings();
         this.log = new LogWrapper(log);

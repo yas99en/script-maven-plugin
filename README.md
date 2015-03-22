@@ -54,6 +54,7 @@ This plugin is based on 'JSR 223: Scripting for the Java Platform'.
 |settings|same as above|
 |log|same as above|
 |session|[org.apache.maven.execution.MavenSession](http://maven.apache.org/ref/3.2.5/maven-core/apidocs/org/apache/maven/execution/MavenSession.html)|
+|mojo|[org.apache.maven.plugin.MojoExecution](http://maven.apache.org/ref/3.2.5/maven-core/apidocs/org/apache/maven/plugin/MojoExecution.html)|
 |arguments|String array provided by arguments property.|
 |scriptFile|current executing script file|
 |public void fail(String msg) throws MojoExecutionException| fails build with message.|
