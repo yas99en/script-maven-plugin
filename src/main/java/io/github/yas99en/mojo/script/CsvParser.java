@@ -39,7 +39,9 @@ public final class CsvParser {
             }
         }
 
-        tokens.add(builder.toString());
+        if(builder.length() != 0) {
+            tokens.add(builder.toString());
+        }
         return tokens.toArray(new String[0]);
     }
 }

@@ -16,24 +16,27 @@ public class TestCsvParser {
     @DataProvider
     public static Object[][] dataTestParseLine() {
         return new Object[][] {
-                { "", new String[]{""} },
+                { "", new String[0] },
                 { "a", new String[]{"a"} },
                 { "a,b", new String[]{"a", "b"} },
                 { "a,b,c", new String[]{"a", "b", "c"} },
-                { ",", new String[]{"", ""} },
-                { ",,", new String[]{"", "", ""} },
-                { ",a,", new String[]{"", "a", ""} },
-                { ",,a,,b,", new String[]{"", "", "a", "", "b", ""} },
+                { ",", new String[]{""} },
+                { ",,", new String[]{"", ""} },
+                { ",a,", new String[]{"", "a"} },
+                { ",,a,,b,", new String[]{"", "", "a", "", "b"} },
 
-                { "\\", new String[]{""} },
+                { "\\", new String[0] },
+                { ",\\", new String[]{""} },
+                { "\\\\", new String[]{"\\"} },
+                { "\\\\,", new String[]{"\\"} },
                 { "\\a", new String[]{"a"} },
-                { "\\a,", new String[]{"a", ""} },
+                { "\\a,", new String[]{"a"} },
                 { "a\\,b", new String[]{"a,b"} },
                 { "a\\,b,c", new String[]{"a,b", "c"} },
                 { "\\,", new String[]{","} },
-                { "\\,,", new String[]{",", ""} },
-                { ",a,", new String[]{"", "a", ""} },
-                { ",\\,a,\\,b,", new String[]{"", ",a", ",b", ""} },
+                { "\\,,", new String[]{","} },
+                { ",a,", new String[]{"", "a"} },
+                { ",\\,a,\\,b,", new String[]{"", ",a", ",b"} },
         };
     }
 
