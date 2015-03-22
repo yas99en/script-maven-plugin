@@ -34,7 +34,6 @@ public class TestCsvParser {
                 { "\\,,", new String[]{",", ""} },
                 { ",a,", new String[]{"", "a", ""} },
                 { ",\\,a,\\,b,", new String[]{"", ",a", ",b", ""} },
-
         };
     }
 
