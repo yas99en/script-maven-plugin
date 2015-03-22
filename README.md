@@ -517,7 +517,7 @@ The followings can be specified by only the system properties.
 | name | Default Value | Explanation  |
 | ------ |:------------: | ------------ |
 |scriptmvn.echo.message||message to be printed. The maven expression can be used.|
-| scriptmvn.echo.output |out|specifies the output method. "out": uses System.out.println. "err" uses System.err.println. "log" uses the maven log info. "error", "warn", "info", "debug" use the maven log in each level.|
+| scriptmvn.echo.output |out|specifies the output method. "out": uses System.out.println. "err" uses System.err.println. "log" uses the maven log info.|
 
 
 

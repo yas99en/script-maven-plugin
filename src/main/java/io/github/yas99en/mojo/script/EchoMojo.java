@@ -43,14 +43,6 @@ public final class EchoMojo extends AbstractMojo {
     private void echo(String str) {
         if(echoOutput.equals("log")) {
             getLog().info(str);
-        } else if(echoOutput.equals("error")) {
-            getLog().error(str);
-        } else if(echoOutput.equals("warn")) {
-            getLog().warn(str);
-        } else if(echoOutput.equals("info")) {
-            getLog().info(str);
-        } else if(echoOutput.equals("debug")) {
-            getLog().debug(str);
         } else if(echoOutput.equals("err")) {
             System.err.println(str);
         } else {
