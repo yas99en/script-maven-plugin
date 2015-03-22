@@ -7,6 +7,9 @@ public final class CsvParser {
     private CsvParser(){}
 
     public static String[] splitByCommna(String str) {
+        if(str == null) {
+            return new String[0];
+        }
         StringBuilder builder = new StringBuilder();
         List<String> tokens = new ArrayList<String>();
         boolean escapeEnable = false;
@@ -18,10 +21,8 @@ public final class CsvParser {
                     builder.append(c);
                     escapeEnable = false;
                 } else {
-                    if(builder.length() != 0) {
-                        tokens.add(builder.toString());
-                        builder = new StringBuilder();
-                    }
+                    tokens.add(builder.toString());
+                    builder = new StringBuilder();
                 }
                 break;
             case '\\':
@@ -37,9 +38,8 @@ public final class CsvParser {
                 escapeEnable = false;
             }
         }
-        if(builder.length() != 0) {
-            tokens.add(builder.toString());
-        }
+
+        tokens.add(builder.toString());
         return tokens.toArray(new String[0]);
     }
 }
