@@ -19,7 +19,7 @@ public final class EchoMojo extends AbstractMojo {
 
     @Parameter(defaultValue = "${session}", readonly = true)
     private MavenSession session;
-    
+
     @Parameter(defaultValue = "${mojoExecution}", readonly = true)
     private MojoExecution execution;
 
