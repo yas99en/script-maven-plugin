@@ -1,8 +1,9 @@
 package io.github.yas99en.mojo.script;
 
+import static org.junit.Assert.*;
+
 import java.util.Arrays;
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -11,7 +12,7 @@ import com.tngtech.java.junit.dataprovider.DataProviderRunner;
 import com.tngtech.java.junit.dataprovider.UseDataProvider;
 
 @RunWith(DataProviderRunner.class)
-public class TestCsvParser {
+public class CsvParserTest {
 
     @DataProvider
     public static Object[][] dataTestParseLine() {
@@ -45,7 +46,7 @@ public class TestCsvParser {
     public void testParseLine(String str, String[] expected) {
         String[] actual = CsvParser.parseLine(str);
         System.out.println(Arrays.asList(expected) + ":" + Arrays.asList(actual));
-        Assert.assertArrayEquals(expected, actual);
+        assertArrayEquals(expected, actual);
     }
 
 }
