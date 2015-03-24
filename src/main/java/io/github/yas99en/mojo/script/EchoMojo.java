@@ -8,6 +8,7 @@ import org.apache.maven.plugin.PluginParameterExpressionEvaluator;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.codehaus.plexus.component.configurator.expression.ExpressionEvaluationException;
+import org.codehaus.plexus.component.configurator.expression.ExpressionEvaluator;
 
 /**
  * Echo message.
@@ -31,8 +32,7 @@ public final class EchoMojo extends AbstractMojo {
             echoOutput = System.getProperty("scriptmvn.echo.output");
         }
 
-        PluginParameterExpressionEvaluator evaluator =
-                new PluginParameterExpressionEvaluator(session, execution);
+        ExpressionEvaluator evaluator = new PluginParameterExpressionEvaluator(session, execution);
         try {
             Object obj = evaluator.evaluate(System.getProperty("scriptmvn.echo.message", ""));
             echo(String.valueOf(obj));
