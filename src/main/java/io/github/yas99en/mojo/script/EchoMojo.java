@@ -32,10 +32,15 @@ public final class EchoMojo extends AbstractMojo {
             echoOutput = System.getProperty("scriptmvn.echo.output");
         }
 
+        String message = System.getProperty("scriptmvn.echo.message", "");
+        Object obj = evaluate(message);
+        echo(String.valueOf(obj));
+    }
+
+    private Object evaluate(String str) throws MojoExecutionException {
         ExpressionEvaluator evaluator = new PluginParameterExpressionEvaluator(session, execution);
         try {
-            Object obj = evaluator.evaluate(System.getProperty("scriptmvn.echo.message", ""));
-            echo(String.valueOf(obj));
+            return evaluator.evaluate(str);
         } catch (ExpressionEvaluationException e) {
             throw new MojoExecutionException(e.getMessage(), e);
         }
