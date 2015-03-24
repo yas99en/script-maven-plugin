@@ -31,7 +31,8 @@ public final class EchoMojo extends AbstractMojo {
             echoOutput = System.getProperty("scriptmvn.echo.output");
         }
 
-        PluginParameterExpressionEvaluator evaluator = new PluginParameterExpressionEvaluator(session, execution);
+        PluginParameterExpressionEvaluator evaluator =
+                new PluginParameterExpressionEvaluator(session, execution);
         try {
             Object obj = evaluator.evaluate(System.getProperty("scriptmvn.echo.message", ""));
             echo(String.valueOf(obj));
