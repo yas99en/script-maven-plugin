@@ -26,7 +26,7 @@ public final class CliMojo extends AbstractMojo {
         executeMojo.setSession(session);
         executeMojo.setExecution(execution);
         executeMojo.setEngine(System.getProperty("scriptmvn.cli.engine", "javascript"));
-        executeMojo.setArguments(getArguments() );
+        executeMojo.setArguments(getArguments());
         executeMojo.setScriptFiles(null);
         executeMojo.setScript(System.getProperty("scriptmvn.cli.script"));
         executeMojo.setScriptFile(System.getProperty("scriptmvn.cli.scriptFile"));
