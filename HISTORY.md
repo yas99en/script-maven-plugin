@@ -1,4 +1,4 @@
-### 1.0.0 / XXX
+### 1.0.0 / 2015-3-25
 
 * added mvn.mojo.
 * added goal `echo`.
