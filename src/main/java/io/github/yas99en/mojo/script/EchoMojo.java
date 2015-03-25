@@ -32,9 +32,11 @@ public final class EchoMojo extends AbstractMojo {
             echoOutput = System.getProperty("scriptmvn.echo.output");
         }
 
-        String message = System.getProperty("scriptmvn.echo.message", "");
-        Object obj = evaluate(message);
-        echo(String.valueOf(obj));
+        String message = System.getProperty("scriptmvn.echo.message");
+        if(message != null) {
+            Object obj = evaluate(message);
+            echo(String.valueOf(obj));
+        }
     }
 
     private Object evaluate(String str) throws MojoExecutionException {

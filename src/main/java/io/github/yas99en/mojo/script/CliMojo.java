@@ -1,5 +1,8 @@
 package io.github.yas99en.mojo.script;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.apache.maven.execution.MavenSession;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecution;
@@ -26,10 +29,10 @@ public final class CliMojo extends AbstractMojo {
         executeMojo.setSession(session);
         executeMojo.setExecution(execution);
         executeMojo.setEngine(System.getProperty("scriptmvn.cli.engine", "javascript"));
-        executeMojo.setArguments(getArguments());
-        executeMojo.setScriptFiles(null);
+        executeMojo.setArguments(getArrayProperty("scriptmvn.cli.arguments"));
         executeMojo.setScript(System.getProperty("scriptmvn.cli.script"));
         executeMojo.setScriptFile(System.getProperty("scriptmvn.cli.scriptFile"));
+        executeMojo.setScriptFiles(getListProperty("scriptmvn.cli.scriptFiles"));
         executeMojo.setGlobalLog(true);
         executeMojo.setGlobalProject(true);
         executeMojo.setGlobalSettings(true);
@@ -40,8 +43,12 @@ public final class CliMojo extends AbstractMojo {
         executeMojo.execute();
     }
 
-    private String[] getArguments() {
-        String arguments = System.getProperty("scriptmvn.cli.arguments");
-        return CsvParser.parseLine(arguments);
+    private String[] getArrayProperty(String name) {
+        String value = System.getProperty(name);
+        return CsvParser.parseLine(value);
+    }
+
+    private List<String> getListProperty(String name) {
+        return Arrays.asList(getArrayProperty(name));
     }
 }

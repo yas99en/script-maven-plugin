@@ -497,6 +497,7 @@ The maven expression can not be used in these properties.
 | scriptmvn.cli.engine |javascript|script engine name.|
 | scriptmvn.cli.script ||inline script.|
 | scriptmvn.cli.scriptFile ||script file name. If a relative path is given, it is treated as a relative path to current directory.|
+| scriptmvn.cli.scriptFiles ||commna separated script file names.|
 | scriptmvn.cli.arguments ||commna separated arguments.|
 
 
