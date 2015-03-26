@@ -3,26 +3,16 @@ package io.github.yas99en.mojo.script;
 import java.util.Arrays;
 import java.util.List;
 
-import org.apache.maven.execution.MavenSession;
-import org.apache.maven.plugin.AbstractMojo;
-import org.apache.maven.plugin.MojoExecution;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugins.annotations.Mojo;
-import org.apache.maven.plugins.annotations.Parameter;
 
 /**
  * Executes scripts.
  * Intended to be used from command line.
  */
 @Mojo(name="cli")
-public final class CliMojo extends AbstractMojo {
+public final class CliMojo extends ScriptMojo {
     private final ExecuteMojo executeMojo = new ExecuteMojo();
-
-    @Parameter(defaultValue = "${session}", readonly = true)
-    private MavenSession session;
-
-    @Parameter(defaultValue = "${mojoExecution}", readonly = true)
-    private MojoExecution execution;
 
     @Override
     public void execute() throws MojoExecutionException {
@@ -43,12 +33,17 @@ public final class CliMojo extends AbstractMojo {
         executeMojo.execute();
     }
 
-    private String[] getArrayProperty(String name) {
+    private String[] getArrayProperty(String name) throws MojoExecutionException {
         String value = System.getProperty(name);
-        return CsvParser.parseLine(value);
+        String[] tokens = CsvParser.parseLine(value);
+        String[] evaluated = new String[tokens.length];
+        for(int i = 0; i < tokens.length; i++) {
+            evaluated[i] = evaluate(tokens[i]);
+        }
+        return evaluated;
     }
 
-    private List<String> getListProperty(String name) {
+    private List<String> getListProperty(String name) throws MojoExecutionException {
         return Arrays.asList(getArrayProperty(name));
     }
 }

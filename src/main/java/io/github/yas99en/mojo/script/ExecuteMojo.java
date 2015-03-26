@@ -15,9 +15,6 @@ import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
-import org.apache.maven.execution.MavenSession;
-import org.apache.maven.plugin.AbstractMojo;
-import org.apache.maven.plugin.MojoExecution;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.logging.Log;
 import org.apache.maven.plugins.annotations.Mojo;
@@ -28,14 +25,8 @@ import org.apache.maven.plugins.annotations.Parameter;
  * Executes scripts
  */
 @Mojo(name="execute")
-public final class ExecuteMojo extends AbstractMojo {
+public final class ExecuteMojo extends ScriptMojo {
     private static final Pattern urlPattern = Pattern.compile("^jar:.*|^http://.*|^https://.*|^file:.*");
-
-    @Parameter(defaultValue = "${session}", readonly = true)
-    private MavenSession session;
-
-    @Parameter(defaultValue = "${mojoExecution}", readonly = true)
-    private MojoExecution execution;
 
     @Parameter(defaultValue = "javascript")
     private String engine;
@@ -185,14 +176,6 @@ public final class ExecuteMojo extends AbstractMojo {
         }
     }
 
-    void setSession(MavenSession session) {
-        this.session = session;
-    }
-
-    void setExecution(MojoExecution execution) {
-        this.execution = execution;
-    }
-
     void setEngine(String engine) {
         this.engine = engine;
     }
@@ -229,11 +212,11 @@ public final class ExecuteMojo extends AbstractMojo {
         this.prefix = prefix;
     }
 
-    public boolean isRelativeToProject() {
+    boolean isRelativeToProject() {
         return relativeToProject;
     }
 
-    public void setRelativeToProject(boolean relativeToProject) {
+    void setRelativeToProject(boolean relativeToProject) {
         this.relativeToProject = relativeToProject;
     }
 }
