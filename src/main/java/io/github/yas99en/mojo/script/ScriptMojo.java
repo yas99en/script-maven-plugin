@@ -9,14 +9,14 @@ import org.apache.maven.plugins.annotations.Parameter;
 import org.codehaus.plexus.component.configurator.expression.ExpressionEvaluationException;
 import org.codehaus.plexus.component.configurator.expression.ExpressionEvaluator;
 
-public abstract class ScriptMojo extends AbstractMojo {
+abstract class ScriptMojo extends AbstractMojo {
 
     @Parameter(defaultValue = "${session}", readonly = true)
     MavenSession session;
     @Parameter(defaultValue = "${mojoExecution}", readonly = true)
     MojoExecution execution;
 
-    protected String evaluate(String str) throws MojoExecutionException {
+    protected final String evaluate(String str) throws MojoExecutionException {
         if(str == null) {
             return null;
         }
@@ -28,11 +28,11 @@ public abstract class ScriptMojo extends AbstractMojo {
         }
     }
 
-    void setSession(MavenSession session) {
+    final void setSession(MavenSession session) {
         this.session = session;
     }
 
-    void setExecution(MojoExecution execution) {
+    final void setExecution(MojoExecution execution) {
         this.execution = execution;
     }
 }
